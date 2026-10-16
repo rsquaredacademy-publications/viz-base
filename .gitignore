@@ -6,8 +6,10 @@ roadmap/
 daily-logs.md
 data-visualization-with-base_files/
 _bookdown_files/
-# knitr scratch dirs for chapters rendered outside docs/ (e.g. --output-dir .stage)
-*_files/
+# knitr scratch dirs for chapters rendered outside docs/ (e.g. --output-dir .stage).
+# Root-anchored: an unanchored *_files/ also matched docs/*_files/, which made the
+# CI auto-commit skip the rendered figure folders and ship broken images.
+/*_files/
 /.stage/
 
 /.quarto/
