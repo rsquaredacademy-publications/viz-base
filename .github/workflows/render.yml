@@ -54,6 +54,11 @@ jobs:
       - name: Render HTML
         run: quarto render --to html --output-dir /tmp/stage-html
 
+      # Quarto re-copies resources found in the committed docs/ into <output>/docs/;
+      # they are not real pages and must not reach the sitemap or the site.
+      - name: Remove nested docs/docs
+        run: rm -rf /tmp/stage-html/docs
+
       # Generated, not hand-maintained. The hand-maintained copy this replaced had
       # drifted out of order against _quarto.yml and had dropped privacy.html
       # entirely. Generating it here means it cannot drift.
