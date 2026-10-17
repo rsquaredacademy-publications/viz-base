@@ -124,20 +124,20 @@ jobs:
           test -f docs/sitemap.xml || { echo "sitemap.xml missing after assemble"; exit 1; }
           ls docs/*.pdf docs/*.epub
 
-      # Analytics has to stay opt-in, and that is easy to break silently: adding
-      # `website.google-analytics` to _quarto.yml would load Google for everyone.
-      # So assert the negative -- a *static* gtag script tag in any page means
-      # Google is contacted before anyone clicks accept, which is the exact
-      # failure the hand-rolled gate in includes/analytics.html exists to prevent.
-      - name: Verify analytics stays consent-gated
+      # Analytics comes from the shared site-kit (vendored in site-kit/, loaded by
+      # includes/site-kit-head.html). Still assert the negative: adding
+      # `website.google-analytics` to _quarto.yml, or pasting a static gtag tag,
+      # would load Google for everyone -- the exact failure the region-based
+      # consent gate exists to prevent.
+      - name: Verify analytics uses the shared site-kit
         run: |
           test -f docs/privacy.html || { echo "privacy.html MISSING from docs/"; exit 1; }
           if grep -rqE '<script[^>]+src="https://www\.googletagmanager\.com' docs/*.html; then
             echo "UNCONDITIONAL ANALYTICS: gtag script tag present without consent"; exit 1;
           fi
-          grep -q 'qz-consent' docs/index.html || { echo "consent banner missing"; exit 1; }
-          grep -q 'G-P98W8WC0XC' docs/index.html || { echo "measurement ID missing"; exit 1; }
-          echo "analytics OK: consent-gated, no static gtag tag"
+          grep -q 'site-kit/rsa-analytics.js' docs/index.html || { echo "site-kit analytics include missing"; exit 1; }
+          grep -q 'G-2QSPEL5WM6' docs/index.html || { echo "measurement ID missing"; exit 1; }
+          echo "analytics OK: shared site-kit, no static gtag tag"
 
       - name: Link check (advisory)
         uses: lycheeverse/lychee-action@v2

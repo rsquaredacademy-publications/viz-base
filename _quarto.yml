@@ -4,6 +4,7 @@ project:
   # sitemap.xml is deliberately NOT a resource: it is generated after the HTML
   # render by scripts/make-sitemap.sh, so there is no root copy to copy in.
   resources:
+    - site-kit
     - "google02e424888b5e2def.html"
     - "privacy.html"
     - "robots.txt"
@@ -22,19 +23,9 @@ website:
     right:
       - text: "GitHub"
         href: https://github.com/rsquaredacademy-publications/viz-base
-  # Analytics: measurement ID is G-P98W8WC0XC, wired up in
-  # includes/analytics.html rather than here. Two reasons, both verified:
-  #
-  #   * `website.google-analytics` is silently ignored for `type: book`. The same
-  #     config emits a gtag tag in a minimal `type: website` project and emits
-  #     nothing here, with no warning.
-  #   * `website.cookie-consent` does not exist in Quarto 1.6.40. The CI
-  #     toolchain is pinned to that version because newer Quarto breaks the Typst
-  #     PDF, so the native consent gate is unavailable.
-  #
-  # Quarto's own analytics injects unconditionally, which leaves a visitor no way
-  # to refuse. includes/analytics.html creates the Google script element only
-  # inside the accept branch, so nothing reaches Google before consent.
+  # Analytics: the shared Rsquared site-kit (GA4 + region-based consent), vendored
+  # in site-kit/ and loaded by includes/site-kit-head.html. Quarto's own
+  # `website.google-analytics` is ignored for `type: book`, hence the include.
 
 book:
   title: "Data Visualization with R"
@@ -57,6 +48,9 @@ book:
     - export-devices.qmd
     - references.qmd
     - about-the-author.qmd
+  page-footer:
+    center: |
+      We use Google Analytics 4 to understand how people use this site (pages visited, referring sites, device type and approximate location) so we can improve our free learning material. Google Analytics uses cookies and a pseudonymous identifier; we don't use it for advertising and we never send Google names or email addresses. Visitors in the European Economic Area, the United Kingdom and Switzerland are asked for consent first, and if they decline, no analytics cookies are stored. Anyone can switch analytics off at any time: <a href="#" data-rsa-analytics-optout>Turn off analytics</a>.
   downloads: [pdf, epub]
   appendices:
     - rosetta.qmd
@@ -85,7 +79,7 @@ format:
     fig-dpi: 192
     include-in-header:
       - includes/head.html
-      - includes/analytics.html
+      - includes/site-kit-head.html
   pdf:
     pdf-engine: typst
     papersize: us-letter

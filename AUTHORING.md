@@ -107,14 +107,14 @@ CI needs `poppler-utils` for the `pdfinfo` check; it is installed in the fonts
 step. `typst` is not on `PATH` in a local Quarto install — add
 `%LOCALAPPDATA%\Quarto\bin\tools\x86_64`.
 
-## Analytics is hand-rolled on purpose
+## Analytics is vendored from the site-kit on purpose
 
-Do not "simplify" `includes/analytics.html` back into `_quarto.yml`.
-`website.google-analytics` is **silently ignored for `type: book`** — no error, no
-warning — and `website.cookie-consent` does not exist in Quarto 1.6.40. CI asserts
-the negative: a static `<script src="...googletagmanager.com...">` in any output
+Analytics is the shared Rsquared site-kit, vendored in `site-kit/` and loaded by
+`includes/site-kit-head.html`, not `website.google-analytics`, which is
+**silently ignored for `type: book`** — no error, no warning. CI asserts the
+negative: a static `<script src="...googletagmanager.com...">` in any output
 page fails the build, because that is precisely the regression that would
-reintroduce unconditional tracking while the banner still looks correct.
+reintroduce unconditional tracking while the consent banner still looks correct.
 
 ## What does not run at knit time
 
