@@ -154,9 +154,11 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <meta name="citation_language" content="en">
 <meta name="citation_book_title" content="Data Visualization with R">
 <meta name="citation_pdf_url" content="https://viz-base.rsquaredacademy.com/Data-Visualization-with-R.pdf">
-<!-- Rsquared site-kit v1.0.1: GA4 + region-based consent. Kit files are vendored in site-kit/. -->
+<!-- Rsquared site-kit v1.2.0: GA4 + region-based consent + email sign-up. Kit files are vendored in site-kit/. -->
 <link rel="stylesheet" href="./site-kit/rsa-consent.css">
 <script src="./site-kit/rsa-analytics.js" data-ga-id="G-2QSPEL5WM6" async=""></script>
+<link rel="stylesheet" href="./site-kit/rsa-signup.css">
+<script src="./site-kit/rsa-signup.js" defer=""></script>
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/monaco-editor@0.47.0/min/vs/editor/editor.main.css">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
   
@@ -2254,7 +2256,7 @@ globalThis.qwebrCreateMonacoEditorInstance = function (cellData) {
 <p>Let us check out a few of the other shapes:</p>
 <div class="cell" data-layout-align="center">
 <div class="cell-output-display">
-<div id="fig-scatter-pch" class="quarto-float quarto-figure quarto-figure-center anchored" data-fig-align="center" alt="A grid of 25 scatterplots of displacement against miles per gallon, all drawing identical points. Each panel shows one plotting symbol in turn, from the open circle of pch 1 through the filled circle, triangle, square and cross, numbered by pch value in a blue label at the top.">
+<div id="fig-scatter-pch" class="quarto-float quarto-figure quarto-figure-center anchored" alt="A grid of 25 scatterplots of displacement against miles per gallon, all drawing identical points. Each panel shows one plotting symbol in turn, from the open circle of pch 1 through the filled circle, triangle, square and cross, numbered by pch value in a blue label at the top." data-fig-align="center">
 <figure class="quarto-float quarto-float-fig figure">
 <div aria-describedby="fig-scatter-pch-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
 <img src="scatter_files/figure-html/fig-scatter-pch-1.png" class="img-fluid quarto-figure quarto-figure-center figure-img" alt="A grid of 25 scatterplots of displacement against miles per gallon, all drawing identical points. Each panel shows one plotting symbol in turn, from the open circle of pch 1 through the filled circle, triangle, square and cross, numbered by pch value in a blue label at the top." width="1920">
@@ -2302,7 +2304,7 @@ Figure&nbsp;4.2: Mapping a third variable to point shape using as.numeric(factor
 <p>The below plots show the size of the points for values relative to 1.</p>
 <div class="cell" data-layout-align="center">
 <div class="cell-output-display">
-<div id="fig-scatter-cex" class="quarto-float quarto-figure quarto-figure-center anchored" data-fig-align="center" alt="A grid of nine scatterplots of displacement against miles per gallon drawing identical points, each panel showing the same symbol at a progressively larger size, from a tiny cross in the first panel to a large filled circle in the last.">
+<div id="fig-scatter-cex" class="quarto-float quarto-figure quarto-figure-center anchored" alt="A grid of nine scatterplots of displacement against miles per gallon drawing identical points, each panel showing the same symbol at a progressively larger size, from a tiny cross in the first panel to a large filled circle in the last." data-fig-align="center">
 <figure class="quarto-float quarto-float-fig figure">
 <div aria-describedby="fig-scatter-cex-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
 <img src="scatter_files/figure-html/fig-scatter-cex-1.png" class="img-fluid quarto-figure quarto-figure-center figure-img" alt="A grid of nine scatterplots of displacement against miles per gallon drawing identical points, each panel showing the same symbol at a progressively larger size, from a tiny cross in the first panel to a large filled circle in the last." width="1920">
@@ -2371,6 +2373,7 @@ Figure&nbsp;4.4: Two variables mapped at once: shape to cylinders, colour to tra
 
 <!-- -->
 
+<div data-rsa-signup="" data-site="viz-base.rsquaredacademy.com" data-privacy-url="https://www.rsquaredacademy.com/privacy-policy.html"></div>
 </section>
 
 </main> <!-- /main -->
@@ -3147,6 +3150,7 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
     </div>   
     <div class="nav-footer-center">
 <p>We use Google Analytics 4 to understand how people use this site (pages visited, referring sites, device type and approximate location) so we can improve our free learning material. Google Analytics uses cookies and a pseudonymous identifier; we don’t use it for advertising and we never send Google names or email addresses. Visitors in the European Economic Area, the United Kingdom and Switzerland are asked for consent first, and if they decline, no analytics cookies are stored. Anyone can switch analytics off at any time: <a href="#" data-rsa-analytics-optout="">Turn off analytics</a>.</p>
+<p>Sites that show the newsletter sign-up form use Zoho Campaigns to send updates. If you sign up, we collect your email address, an optional first name, and which site you signed up on, and we use them only to send you updates. Sign-up uses double opt-in, so you must confirm by email before you are added; every email includes an unsubscribe link, and we never sell or share the list.</p>
 </div>
     <div class="nav-footer-right">
       &nbsp;
