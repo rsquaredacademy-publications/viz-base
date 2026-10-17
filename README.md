@@ -97,12 +97,13 @@ Content CC BY-NC-SA 4.0.
 
 ## Privacy
 
-The book collects nothing and has no accounts, comments or newsletter. Optional
-Google Analytics is **off until the reader accepts it** — the Google tag is only
-ever created inside the accept branch, so nothing reaches Google before then, and
-the choice is reversible from an "Analytics preferences" button on every page.
-WebR playgrounds run entirely in the browser. See [privacy.html](privacy.html).
+The book collects nothing and has no accounts, comments or newsletter. Analytics
+come from the shared Rsquared site-kit (GA4 with region-based consent): European
+visitors are asked first, and anyone can switch analytics off from the footer
+link. WebR playgrounds run entirely in the browser. See
+[privacy.html](privacy.html).
 
-Analytics is hand-rolled in `includes/analytics.html` rather than configured via
+Analytics is the vendored site-kit in `site-kit/`, loaded by
+`includes/site-kit-head.html` rather than configured via
 `website.google-analytics`, which Quarto silently ignores for `type: book`, and
 which loads Google unconditionally when it does work.
