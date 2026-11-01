@@ -13,25 +13,28 @@ quarto-required: ">=1.6.0"
 
 sitemap: true
 
-website:
-  site-url: https://viz-base.rsquaredacademy.com
-  description: "Learn to visualize data with base R: zero-dependency, publication-ready graphics."
-  open-graph: true
-  twitter-card: true
-  repo-url: https://github.com/rsquaredacademy-publications/viz-base
-  navbar:
-    right:
-      - text: "GitHub"
-        href: https://github.com/rsquaredacademy-publications/viz-base
-  # Analytics: the shared Rsquared site-kit (GA4 + region-based consent), vendored
-  # in site-kit/ and loaded by includes/site-kit-head.html. Quarto's own
-  # `website.google-analytics` is ignored for `type: book`, hence the include.
-
 book:
   title: "Data Visualization with R"
   subtitle: "Base Graphics"
   author: "Aravind Hebbali"
   date: last-modified
+  # Social metadata lives under `book:`: Quarto ignores the `website:` block in
+  # book projects, so site-url/open-graph/twitter-card must be set here.
+  site-url: https://viz-base.rsquaredacademy.com
+  description: "Learn to visualize data with base R: zero-dependency, publication-ready graphics."
+  image: img/social-card.png
+  open-graph:
+    site-name: Rsquared Academy
+    image: img/social-card.png
+  twitter-card:
+    card-style: summary_large_image
+    site: "@rsquaredacademy"
+    image: img/social-card.png
+  repo-url: https://github.com/rsquaredacademy-publications/viz-base
+  navbar:
+    right:
+      - text: "GitHub"
+        href: https://github.com/rsquaredacademy-publications/viz-base
   chapters:
     - index.qmd
     - why-base.qmd
@@ -80,6 +83,9 @@ format:
     code-overflow: wrap
     fig-align: center
     fig-dpi: 192
+    # Analytics: the shared Rsquared site-kit (GA4 + region-based consent),
+    # vendored in site-kit/ and loaded by includes/site-kit-head.html. Quarto's
+    # own `google-analytics` is ignored for `type: book`, hence the include.
     include-in-header:
       - includes/head.html
       - includes/site-kit-head.html
