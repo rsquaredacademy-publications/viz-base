@@ -76,14 +76,14 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <link href="site_libs/quarto-html/quarto-syntax-highlighting-dark-8ea72dc5fed832574809a9c94082fbbb.css" rel="prefetch" class="quarto-color-scheme quarto-color-alternate" id="quarto-text-highlighting-styles">
 <script src="site_libs/bootstrap/bootstrap.min.js"></script>
 <link href="site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="site_libs/bootstrap/bootstrap-3846d7266b04868d3ce6ba15eaa41f0f.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme" id="quarto-bootstrap" data-mode="light">
-<link href="site_libs/bootstrap/bootstrap-dark-9193e7c8f6e0ad4307b1caa0c157c415.min.css" rel="prefetch" append-hash="true" class="quarto-color-scheme quarto-color-alternate" id="quarto-bootstrap" data-mode="dark">
+<link href="site_libs/bootstrap/bootstrap-5e4ef2c717eb21ec6a4b05eba426a39c.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme" id="quarto-bootstrap" data-mode="light">
+<link href="site_libs/bootstrap/bootstrap-dark-377f6d8191a04a916bc7fa7d5e65d799.min.css" rel="prefetch" append-hash="true" class="quarto-color-scheme quarto-color-alternate" id="quarto-bootstrap" data-mode="dark">
 <script id="quarto-search-options" type="application/json">{
-  "location": "sidebar",
+  "location": "navbar",
   "copy-button": false,
   "collapse-after": 3,
-  "panel-placement": "start",
-  "type": "textbox",
+  "panel-placement": "end",
+  "type": "overlay",
   "limit": 50,
   "keyboard-shortcut": [
     "f",
@@ -116,7 +116,9 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
         delete these tags -- with them removed Quarto emits nothing. Verified:
         docs/scatter.html gets "4 Scatter Plots", docs/line.html gets
         "5 Line Graphs". og:site_name and og:type are ours; Quarto does not
-        manage those.
+        manage those. Keep the site_name and image values in step with
+        `book: open-graph` / `book: twitter-card` in _quarto.yml: whichever copy
+        a scraper reads, it must name Rsquared Academy and the share card.
 
         The plain `description` tag matters as much as the og: ones: it is the
         text Google shows in a search result, and it was missing from every page
@@ -139,16 +141,17 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
      metadata. Keep it that way: Quarto's own `website.google-analytics` injects
      the tag unconditionally and is silently ignored for `type: book`, so the
      gate has to be ours. -->
-<meta property="og:site_name" content="Data Visualization with R">
+<meta property="og:site_name" content="Rsquared Academy">
 <meta property="og:type" content="book">
 <meta name="description" content="Learn to visualize data with base R: zero-dependency, publication-ready graphics.">
 <meta property="og:title" content="12&nbsp; Production Export &amp; Graphical Devices – Data Visualization with R">
-<meta property="og:description" content="Export base R plots to file: png(), pdf() and svg(), dev.off(), batch report loops, the par() master set, custom axis() ticks and colourblind-safe palettes.">
-<meta property="og:image" content="https://viz-base.rsquaredacademy.com/img/viz-base.png">
+<meta property="og:description" content="Learn to visualize data with base R: zero-dependency, publication-ready graphics.">
+<meta property="og:image" content="https://viz-base.rsquaredacademy.com/img/social-card.png">
 <meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:site" content="@rsquaredacademy">
 <meta name="twitter:title" content="12&nbsp; Production Export &amp; Graphical Devices – Data Visualization with R">
-<meta name="twitter:description" content="Export base R plots to file: png(), pdf() and svg(), dev.off(), batch report loops, the par() master set, custom axis() ticks and colourblind-safe palettes.">
-<meta name="twitter:image" content="https://viz-base.rsquaredacademy.com/img/viz-base.png">
+<meta name="twitter:description" content="Learn to visualize data with base R: zero-dependency, publication-ready graphics.">
+<meta name="twitter:image" content="https://viz-base.rsquaredacademy.com/img/social-card.png">
 <meta name="citation_title" content="Data Visualization with R — Base Graphics">
 <meta name="citation_author" content="Aravind Hebbali">
 <meta name="citation_language" content="en">
@@ -161,45 +164,57 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <script src="./site-kit/rsa-signup.js" defer=""></script>
 
 
+<meta property="og:title" content="[[12]{.chapter-number}&nbsp; [Production Export &amp; Graphical Devices]{.chapter-title}]{#export-devices .quarto-section-identifier} – Data Visualization with R">
+<meta property="og:description" content="Learn to visualize data with base R: zero-dependency, publication-ready graphics.">
+<meta property="og:image" content="https://viz-base.rsquaredacademy.com/img/social-card.png">
+<meta property="og:site_name" content="Rsquared Academy">
+<meta property="og:image:height" content="630">
+<meta property="og:image:width" content="1200">
+<meta name="twitter:title" content="[[12]{.chapter-number}&nbsp; [Production Export &amp; Graphical Devices]{.chapter-title}]{#export-devices .quarto-section-identifier} – Data Visualization with R">
+<meta name="twitter:description" content="Learn to visualize data with base R: zero-dependency, publication-ready graphics.">
+<meta name="twitter:image" content="https://viz-base.rsquaredacademy.com/img/social-card.png">
+<meta name="twitter:site" content="@rsquaredacademy">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:image-height" content="630">
+<meta name="twitter:image-width" content="1200">
 </head>
 
-<body class="nav-sidebar floating">
+<body class="nav-sidebar floating nav-fixed">
 
 <div id="quarto-search-results"></div>
   <header id="quarto-header" class="headroom fixed-top">
-  <nav class="quarto-secondary-nav">
-    <div class="container-fluid d-flex">
-      <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" role="button" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
-        <i class="bi bi-layout-text-sidebar-reverse"></i>
-      </button>
-        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./export-devices.html"><span class="chapter-number">12</span>&nbsp; <span class="chapter-title">Production Export &amp; Graphical Devices</span></a></li></ol></nav>
-        <a class="flex-grow-1" role="navigation" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
-        </a>
-      <button type="button" class="btn quarto-search-button" aria-label="Search" onclick="window.quartoOpenSearch();">
-        <i class="bi bi-search"></i>
-      </button>
-    </div>
-  </nav>
-</header>
-<!-- content -->
-<div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article">
-<!-- sidebar -->
-  <nav id="quarto-sidebar" class="sidebar collapse collapse-horizontal quarto-sidebar-collapse-item sidebar-navigation floating overflow-auto">
-    <div class="pt-lg-2 mt-2 text-left sidebar-header">
-    <div class="sidebar-title mb-0 py-0">
-      <a href="./">Data Visualization with R</a> 
-        <div class="sidebar-tools-main">
+    <nav class="navbar navbar-expand-lg " data-bs-theme="dark">
+      <div class="navbar-container container-fluid">
+      <div class="navbar-brand-container mx-auto">
+    <a class="navbar-brand" href="./index.html">
+    <span class="navbar-title">Data Visualization with R</span>
+    </a>
+  </div>
+            <div id="quarto-search" class="" title="Search"></div>
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse" aria-controls="navbarCollapse" role="menu" aria-expanded="false" aria-label="Toggle navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+  <span class="navbar-toggler-icon"></span>
+</button>
+          <div class="collapse navbar-collapse" id="navbarCollapse">
+            <ul class="navbar-nav navbar-nav-scroll ms-auto">
+  <li class="nav-item">
+    <a class="nav-link" href="https://github.com/rsquaredacademy-publications/viz-base"> 
+<span class="menu-text">GitHub</span></a>
+  </li>  
+</ul>
+          </div> <!-- /navcollapse -->
+            <div class="quarto-navbar-tools tools-wide">
+    <a href="https://github.com/rsquaredacademy-publications/viz-base" title="Source Code" class="quarto-navigation-tool px-1" aria-label="Source Code"><i class="bi bi-github"></i></a>
     <div class="dropdown">
       <a href="" title="Download" id="quarto-navigation-tool-dropdown-0" class="quarto-navigation-tool dropdown-toggle px-1" data-bs-toggle="dropdown" aria-expanded="false" role="link" aria-label="Download"><i class="bi bi-download"></i></a>
       <ul class="dropdown-menu" aria-labelledby="quarto-navigation-tool-dropdown-0">
           <li>
-            <a class="dropdown-item sidebar-tools-main-item" href="./Data-Visualization-with-R.pdf">
+            <a class="dropdown-item quarto-navbar-tools-item" href="./Data-Visualization-with-R.pdf">
               <i class="bi bi-file-pdf pe-1"></i>
             Download PDF
             </a>
           </li>
           <li>
-            <a class="dropdown-item sidebar-tools-main-item" href="./Data-Visualization-with-R.epub">
+            <a class="dropdown-item quarto-navbar-tools-item" href="./Data-Visualization-with-R.epub">
               <i class="bi bi-journal pe-1"></i>
             Download ePub
             </a>
@@ -208,13 +223,23 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
     </div>
   <a href="" class="quarto-color-scheme-toggle quarto-navigation-tool  px-1" onclick="window.quartoToggleColorScheme(); return false;" title="Toggle dark mode"><i class="bi"></i></a>
 </div>
+      </div> <!-- /container-fluid -->
+    </nav>
+  <nav class="quarto-secondary-nav">
+    <div class="container-fluid d-flex">
+      <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" role="button" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+        <i class="bi bi-layout-text-sidebar-reverse"></i>
+      </button>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./export-devices.html"><span class="chapter-number">12</span>&nbsp; <span class="chapter-title">Production Export &amp; Graphical Devices</span></a></li></ol></nav>
+        <a class="flex-grow-1" role="navigation" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
+        </a>
     </div>
-      </div>
-        <div class="mt-2 flex-shrink-0 align-items-center">
-        <div class="sidebar-search">
-        <div id="quarto-search" class="" title="Search"></div>
-        </div>
-        </div>
+  </nav>
+</header>
+<!-- content -->
+<div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article page-navbar">
+<!-- sidebar -->
+  <nav id="quarto-sidebar" class="sidebar collapse collapse-horizontal quarto-sidebar-collapse-item sidebar-navigation floating overflow-auto">
     <div class="sidebar-menu-container"> 
     <ul class="list-unstyled mt-1">
         <li class="sidebar-item">
@@ -561,7 +586,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <span id="cb17-5"><a href="#cb17-5" aria-hidden="true" tabindex="-1"></a><span class="fu">plot</span>(mtcars<span class="sc">$</span>disp, mtcars<span class="sc">$</span>mpg, <span class="at">main =</span> <span class="st">'mar = c(2, 2, 1, 1)'</span>)</span>
 <span id="cb17-6"><a href="#cb17-6" aria-hidden="true" tabindex="-1"></a><span class="fu">par</span>(init)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
-<div id="fig-par-mar" class="quarto-float quarto-figure quarto-figure-center anchored" alt="Two scatterplots of engine displacement against miles per gallon, side by side. Both draw identical points. The left panel uses the default margins and the plot title sits clear above the data. The right panel uses mar = c(2, 2, 1, 1), which leaves only two lines at the bottom, and its title is pushed up against the top edge of the figure." data-fig-align="center">
+<div id="fig-par-mar" class="quarto-float quarto-figure quarto-figure-center anchored" data-fig-align="center" alt="Two scatterplots of engine displacement against miles per gallon, side by side. Both draw identical points. The left panel uses the default margins and the plot title sits clear above the data. The right panel uses mar = c(2, 2, 1, 1), which leaves only two lines at the bottom, and its title is pushed up against the top edge of the figure.">
 <figure class="quarto-float quarto-float-fig figure">
 <div aria-describedby="fig-par-mar-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
 <img src="export-devices_files/figure-html/fig-par-mar-1.png" class="img-fluid quarto-figure quarto-figure-center figure-img" alt="Two scatterplots of engine displacement against miles per gallon, side by side. Both draw identical points. The left panel uses the default margins and the plot title sits clear above the data. The right panel uses mar = c(2, 2, 1, 1), which leaves only two lines at the bottom, and its title is pushed up against the top edge of the figure." width="1536">
@@ -586,7 +611,7 @@ Figure&nbsp;12.1: Effect of <code>par(mar)</code> on the space available to titl
 <span id="cb18-5"><a href="#cb18-5" aria-hidden="true" tabindex="-1"></a><span class="fu">plot</span>(mtcars<span class="sc">$</span>disp, mtcars<span class="sc">$</span>mpg, <span class="at">main =</span> <span class="st">'mgp = c(2, 0.7, 0)'</span>)</span>
 <span id="cb18-6"><a href="#cb18-6" aria-hidden="true" tabindex="-1"></a><span class="fu">par</span>(init)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
-<div id="fig-par-mgp" class="quarto-float quarto-figure quarto-figure-center anchored" alt="Two scatterplots of displacement against miles per gallon. Both draw identical points and both label their axes the same way. The left uses the default mgp = c(3, 1, 0), which sits the axis title three lines out. The right uses mgp = c(2, 0.7, 0), pulling both the tick labels and the axis title closer to the axis and leaving more room in the margin." data-fig-align="center">
+<div id="fig-par-mgp" class="quarto-float quarto-figure quarto-figure-center anchored" data-fig-align="center" alt="Two scatterplots of displacement against miles per gallon. Both draw identical points and both label their axes the same way. The left uses the default mgp = c(3, 1, 0), which sits the axis title three lines out. The right uses mgp = c(2, 0.7, 0), pulling both the tick labels and the axis title closer to the axis and leaving more room in the margin.">
 <figure class="quarto-float quarto-float-fig figure">
 <div aria-describedby="fig-par-mgp-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
 <img src="export-devices_files/figure-html/fig-par-mgp-1.png" class="img-fluid quarto-figure quarto-figure-center figure-img" alt="Two scatterplots of displacement against miles per gallon. Both draw identical points and both label their axes the same way. The left uses the default mgp = c(3, 1, 0), which sits the axis title three lines out. The right uses mgp = c(2, 0.7, 0), pulling both the tick labels and the axis title closer to the axis and leaving more room in the margin." width="1536">
@@ -614,7 +639,7 @@ Figure&nbsp;12.2: Effect of <code>par(mgp)</code> on axis label placement
 <span id="cb19-9"><a href="#cb19-9" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb19-10"><a href="#cb19-10" aria-hidden="true" tabindex="-1"></a><span class="fu">par</span>(init)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
-<div id="fig-par-las" class="quarto-float quarto-figure quarto-figure-center anchored" alt="Two scatterplots of displacement against miles per gallon with identical points. In the left panel, las = 1, and the numeric labels along both axes are drawn horizontally regardless of which axis they belong to. In the right panel, las = 0, the default, and the labels on the vertical axis are rotated so they run parallel to that axis instead." data-fig-align="center">
+<div id="fig-par-las" class="quarto-float quarto-figure quarto-figure-center anchored" data-fig-align="center" alt="Two scatterplots of displacement against miles per gallon with identical points. In the left panel, las = 1, and the numeric labels along both axes are drawn horizontally regardless of which axis they belong to. In the right panel, las = 0, the default, and the labels on the vertical axis are rotated so they run parallel to that axis instead.">
 <figure class="quarto-float quarto-float-fig figure">
 <div aria-describedby="fig-par-las-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
 <img src="export-devices_files/figure-html/fig-par-las-1.png" class="img-fluid quarto-figure quarto-figure-center figure-img" alt="Two scatterplots of displacement against miles per gallon with identical points. In the left panel, las = 1, and the numeric labels along both axes are drawn horizontally regardless of which axis they belong to. In the right panel, las = 0, the default, and the labels on the vertical axis are rotated so they run parallel to that axis instead." width="1536">
@@ -639,7 +664,7 @@ Figure&nbsp;12.3: Effect of <code>par(las)</code> on the orientation of axis lab
 <span id="cb20-5"><a href="#cb20-5" aria-hidden="true" tabindex="-1"></a><span class="fu">plot</span>(mtcars<span class="sc">$</span>disp, mtcars<span class="sc">$</span>mpg, <span class="at">main =</span> <span class="st">"bty = 'l'"</span>, <span class="at">bty =</span> <span class="st">'l'</span>)</span>
 <span id="cb20-6"><a href="#cb20-6" aria-hidden="true" tabindex="-1"></a><span class="fu">par</span>(init)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
-<div id="fig-par-bty" class="quarto-float quarto-figure quarto-figure-center anchored" alt="Two scatterplots of displacement against miles per gallon with identical points. The left uses the default bty = 'o' and is enclosed by a solid box on all four sides. The right uses bty = 'l', which keeps only the left and bottom axis lines and removes the top and right borders." data-fig-align="center">
+<div id="fig-par-bty" class="quarto-float quarto-figure quarto-figure-center anchored" data-fig-align="center" alt="Two scatterplots of displacement against miles per gallon with identical points. The left uses the default bty = 'o' and is enclosed by a solid box on all four sides. The right uses bty = 'l', which keeps only the left and bottom axis lines and removes the top and right borders.">
 <figure class="quarto-float quarto-float-fig figure">
 <div aria-describedby="fig-par-bty-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
 <img src="export-devices_files/figure-html/fig-par-bty-1.png" class="img-fluid quarto-figure quarto-figure-center figure-img" alt="Two scatterplots of displacement against miles per gallon with identical points. The left uses the default bty = 'o' and is enclosed by a solid box on all four sides. The right uses bty = 'l', which keeps only the left and bottom axis lines and removes the top and right borders." width="1536">
@@ -660,7 +685,7 @@ Figure&nbsp;12.4: Effect of <code>par(bty)</code> on the box drawn around the pl
 <span id="cb21-5"><a href="#cb21-5" aria-hidden="true" tabindex="-1"></a><span class="fu">plot</span>(mtcars<span class="sc">$</span>disp, mtcars<span class="sc">$</span>mpg, <span class="at">main =</span> <span class="st">'tck = -0.02 (outside)'</span>, <span class="at">tck =</span> <span class="sc">-</span><span class="fl">0.02</span>)</span>
 <span id="cb21-6"><a href="#cb21-6" aria-hidden="true" tabindex="-1"></a><span class="fu">par</span>(init)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
-<div id="fig-par-tck" class="quarto-float quarto-figure quarto-figure-center anchored" alt="Two scatterplots of displacement against miles per gallon with identical points and identical tick positions. In the left panel the short tick marks point inward, into the plot area. In the right panel, with a negative tck, the same ticks point outward, away from the data." data-fig-align="center">
+<div id="fig-par-tck" class="quarto-float quarto-figure quarto-figure-center anchored" data-fig-align="center" alt="Two scatterplots of displacement against miles per gallon with identical points and identical tick positions. In the left panel the short tick marks point inward, into the plot area. In the right panel, with a negative tck, the same ticks point outward, away from the data.">
 <figure class="quarto-float quarto-float-fig figure">
 <div aria-describedby="fig-par-tck-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
 <img src="export-devices_files/figure-html/fig-par-tck-1.png" class="img-fluid quarto-figure quarto-figure-center figure-img" alt="Two scatterplots of displacement against miles per gallon with identical points and identical tick positions. In the left panel the short tick marks point inward, into the plot area. In the right panel, with a negative tck, the same ticks point outward, away from the data." width="1536">
@@ -687,7 +712,7 @@ Figure&nbsp;12.5: Effect of <code>par(tck)</code> on tick mark direction
 <span id="cb22-3"><a href="#cb22-3" aria-hidden="true" tabindex="-1"></a>     <span class="at">ylab =</span> <span class="st">'Value'</span>)</span>
 <span id="cb22-4"><a href="#cb22-4" aria-hidden="true" tabindex="-1"></a><span class="fu">axis</span>(<span class="dv">1</span>, <span class="at">at =</span> <span class="fu">seq_along</span>(d), <span class="at">labels =</span> LETTERS[<span class="fu">seq_along</span>(d)])</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
-<div id="fig-axis-basic" class="quarto-float quarto-figure quarto-figure-center anchored" alt="A line chart with six points rising steeply from left to right. The automatic x axis has been suppressed and replaced with tick marks labelled A, B, C, D, E and F, one under each data point." data-fig-align="center">
+<div id="fig-axis-basic" class="quarto-float quarto-figure quarto-figure-center anchored" data-fig-align="center" alt="A line chart with six points rising steeply from left to right. The automatic x axis has been suppressed and replaced with tick marks labelled A, B, C, D, E and F, one under each data point.">
 <figure class="quarto-float quarto-float-fig figure">
 <div aria-describedby="fig-axis-basic-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
 <img src="export-devices_files/figure-html/fig-axis-basic-1.png" class="img-fluid quarto-figure quarto-figure-center figure-img" alt="A line chart with six points rising steeply from left to right. The automatic x axis has been suppressed and replaced with tick marks labelled A, B, C, D, E and F, one under each data point." width="1248">
@@ -707,7 +732,7 @@ Figure&nbsp;12.6: Replacing the automatic x axis with <code>axis()</code> and cu
 <span id="cb23-3"><a href="#cb23-3" aria-hidden="true" tabindex="-1"></a><span class="fu">axis</span>(<span class="dv">1</span>, <span class="at">at =</span> <span class="fu">seq_along</span>(d), <span class="at">labels =</span> <span class="cn">FALSE</span>)</span>
 <span id="cb23-4"><a href="#cb23-4" aria-hidden="true" tabindex="-1"></a><span class="fu">axis</span>(<span class="dv">4</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
-<div id="fig-axis-nolab" class="quarto-float quarto-figure quarto-figure-center anchored" alt="The same rising six-point line chart. The bottom axis carries tick marks but no text labels, and a new vertical axis has been added along the right-hand edge with its own numbered scale, so the same data can be read against two different units." data-fig-align="center">
+<div id="fig-axis-nolab" class="quarto-float quarto-figure quarto-figure-center anchored" data-fig-align="center" alt="The same rising six-point line chart. The bottom axis carries tick marks but no text labels, and a new vertical axis has been added along the right-hand edge with its own numbered scale, so the same data can be read against two different units.">
 <figure class="quarto-float quarto-float-fig figure">
 <div aria-describedby="fig-axis-nolab-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
 <img src="export-devices_files/figure-html/fig-axis-nolab-1.png" class="img-fluid quarto-figure quarto-figure-center figure-img" alt="The same rising six-point line chart. The bottom axis carries tick marks but no text labels, and a new vertical axis has been added along the right-hand edge with its own numbered scale, so the same data can be read against two different units." width="1248">
@@ -729,7 +754,7 @@ Figure&nbsp;12.7: Labelless ticks on the bottom axis, and a second axis on the r
 <span id="cb24-5"><a href="#cb24-5" aria-hidden="true" tabindex="-1"></a><span class="fu">axis</span>(<span class="dv">1</span>, <span class="at">at =</span> <span class="fu">as.numeric</span>(when),</span>
 <span id="cb24-6"><a href="#cb24-6" aria-hidden="true" tabindex="-1"></a>     <span class="at">labels =</span> <span class="fu">format</span>(when, <span class="st">'%b %d'</span>), <span class="at">las =</span> <span class="dv">1</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
-<div id="fig-axis-dates" class="quarto-float quarto-figure quarto-figure-center anchored" alt="A line chart of weekly sales rising from about 120 to about 180 over seven roughly monthly observations from January to June 2026. The points are connected by straight line segments. The x axis has been drawn manually and carries horizontal labels reading Jan 01, Jan 31, Mar 02, Apr 01, May 01, May 31 and Jun 30, one under each point." data-fig-align="center">
+<div id="fig-axis-dates" class="quarto-float quarto-figure quarto-figure-center anchored" data-fig-align="center" alt="A line chart of weekly sales rising from about 120 to about 180 over seven roughly monthly observations from January to June 2026. The points are connected by straight line segments. The x axis has been drawn manually and carries horizontal labels reading Jan 01, Jan 31, Mar 02, Apr 01, May 01, May 31 and Jun 30, one under each point.">
 <figure class="quarto-float quarto-float-fig figure">
 <div aria-describedby="fig-axis-dates-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
 <img src="export-devices_files/figure-html/fig-axis-dates-1.png" class="img-fluid quarto-figure quarto-figure-center figure-img" alt="A line chart of weekly sales rising from about 120 to about 180 over seven roughly monthly observations from January to June 2026. The points are connected by straight line segments. The x axis has been drawn manually and carries horizontal labels reading Jan 01, Jan 31, Mar 02, Apr 01, May 01, May 31 and Jun 30, one under each point." width="1344">
@@ -762,7 +787,7 @@ Figure&nbsp;12.8: A date axis drawn with <code>axis()</code>, formatted from num
 <span id="cb27-5"><a href="#cb27-5" aria-hidden="true" tabindex="-1"></a><span class="fu">points</span>(mtcars<span class="sc">$</span>disp, mtcars<span class="sc">$</span>mpg, <span class="at">pch =</span> <span class="dv">19</span>, <span class="at">col =</span> pal[<span class="dv">1</span>])</span>
 <span id="cb27-6"><a href="#cb27-6" aria-hidden="true" tabindex="-1"></a><span class="fu">legend</span>(<span class="st">'topleft'</span>, <span class="at">legend =</span> <span class="st">'4 cyl'</span>, <span class="at">pch =</span> <span class="dv">19</span>, <span class="at">col =</span> pal[<span class="dv">1</span>], <span class="at">bty =</span> <span class="st">'n'</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
-<div id="fig-okabe-demo" class="quarto-float quarto-figure quarto-figure-center anchored" alt="A scatterplot of engine displacement against miles per gallon, showing the familiar downward trend from about 30 miles per gallon at low displacement to about 10 at high displacement. All 32 points are solid blue circles, keyed in a frameless legend at the top left as representing four-cylinder cars." data-fig-align="center">
+<div id="fig-okabe-demo" class="quarto-float quarto-figure quarto-figure-center anchored" data-fig-align="center" alt="A scatterplot of engine displacement against miles per gallon, showing the familiar downward trend from about 30 miles per gallon at low displacement to about 10 at high displacement. All 32 points are solid blue circles, keyed in a frameless legend at the top left as representing four-cylinder cars.">
 <figure class="quarto-float quarto-float-fig figure">
 <div aria-describedby="fig-okabe-demo-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
 <img src="export-devices_files/figure-html/fig-okabe-demo-1.png" class="img-fluid quarto-figure quarto-figure-center figure-img" alt="A scatterplot of engine displacement against miles per gallon, showing the familiar downward trend from about 30 miles per gallon at low displacement to about 10 at high displacement. All 32 points are solid blue circles, keyed in a frameless legend at the top left as representing four-cylinder cars." width="1344">
@@ -799,7 +824,7 @@ Figure&nbsp;12.9: A single series drawn in the first colour of the Okabe-Ito pal
 <span id="cb29-15"><a href="#cb29-15" aria-hidden="true" tabindex="-1"></a><span class="fu">points</span>(mtcars<span class="sc">$</span>disp, mtcars<span class="sc">$</span>mpg, <span class="at">pch =</span> <span class="dv">19</span>, <span class="at">col =</span> grey[<span class="dv">1</span><span class="sc">:</span><span class="dv">3</span>])</span>
 <span id="cb29-16"><a href="#cb29-16" aria-hidden="true" tabindex="-1"></a><span class="fu">par</span>(init)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
-<div id="fig-greyscale" class="quarto-float quarto-figure quarto-figure-center anchored" alt="Two scatterplots of engine displacement against miles per gallon, side by side, with identical point positions. The left plot shows three clearly distinguishable series in blue, orange and green. The right plot shows the same three series converted to shades of grey by Rec. 601 luma: the blue points become mid grey, and the orange and green points both collapse to shades so close to each other that the two series are hard to tell apart." data-fig-align="center">
+<div id="fig-greyscale" class="quarto-float quarto-figure quarto-figure-center anchored" data-fig-align="center" alt="Two scatterplots of engine displacement against miles per gallon, side by side, with identical point positions. The left plot shows three clearly distinguishable series in blue, orange and green. The right plot shows the same three series converted to shades of grey by Rec. 601 luma: the blue points become mid grey, and the orange and green points both collapse to shades so close to each other that the two series are hard to tell apart.">
 <figure class="quarto-float quarto-float-fig figure">
 <div aria-describedby="fig-greyscale-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
 <img src="export-devices_files/figure-html/fig-greyscale-1.png" class="img-fluid quarto-figure quarto-figure-center figure-img" alt="Two scatterplots of engine displacement against miles per gallon, side by side, with identical point positions. The left plot shows three clearly distinguishable series in blue, orange and green. The right plot shows the same three series converted to shades of grey by Rec. 601 luma: the blue points become mid grey, and the orange and green points both collapse to shades so close to each other that the two series are hard to tell apart." width="1536">
@@ -1196,7 +1221,7 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
   }
     var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
     var mailtoRegex = new RegExp(/^mailto:/);
-      var filterRegex = new RegExp('/' + window.location.host + '/');
+      var filterRegex = new RegExp("https:\/\/viz-base\.rsquaredacademy\.com");
     var isInternal = (href) => {
         return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
     }

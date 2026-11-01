@@ -76,14 +76,14 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <link href="site_libs/quarto-html/quarto-syntax-highlighting-dark-8ea72dc5fed832574809a9c94082fbbb.css" rel="prefetch" class="quarto-color-scheme quarto-color-alternate" id="quarto-text-highlighting-styles">
 <script src="site_libs/bootstrap/bootstrap.min.js"></script>
 <link href="site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="site_libs/bootstrap/bootstrap-3846d7266b04868d3ce6ba15eaa41f0f.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme" id="quarto-bootstrap" data-mode="light">
-<link href="site_libs/bootstrap/bootstrap-dark-9193e7c8f6e0ad4307b1caa0c157c415.min.css" rel="prefetch" append-hash="true" class="quarto-color-scheme quarto-color-alternate" id="quarto-bootstrap" data-mode="dark">
+<link href="site_libs/bootstrap/bootstrap-5e4ef2c717eb21ec6a4b05eba426a39c.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme" id="quarto-bootstrap" data-mode="light">
+<link href="site_libs/bootstrap/bootstrap-dark-377f6d8191a04a916bc7fa7d5e65d799.min.css" rel="prefetch" append-hash="true" class="quarto-color-scheme quarto-color-alternate" id="quarto-bootstrap" data-mode="dark">
 <script id="quarto-search-options" type="application/json">{
-  "location": "sidebar",
+  "location": "navbar",
   "copy-button": false,
   "collapse-after": 3,
-  "panel-placement": "start",
-  "type": "textbox",
+  "panel-placement": "end",
+  "type": "overlay",
   "limit": 50,
   "keyboard-shortcut": [
     "f",
@@ -116,7 +116,9 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
         delete these tags -- with them removed Quarto emits nothing. Verified:
         docs/scatter.html gets "4 Scatter Plots", docs/line.html gets
         "5 Line Graphs". og:site_name and og:type are ours; Quarto does not
-        manage those.
+        manage those. Keep the site_name and image values in step with
+        `book: open-graph` / `book: twitter-card` in _quarto.yml: whichever copy
+        a scraper reads, it must name Rsquared Academy and the share card.
 
         The plain `description` tag matters as much as the og: ones: it is the
         text Google shows in a search result, and it was missing from every page
@@ -139,16 +141,17 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
      metadata. Keep it that way: Quarto's own `website.google-analytics` injects
      the tag unconditionally and is silently ignored for `type: book`, so the
      gate has to be ours. -->
-<meta property="og:site_name" content="Data Visualization with R">
+<meta property="og:site_name" content="Rsquared Academy">
 <meta property="og:type" content="book">
 <meta name="description" content="Learn to visualize data with base R: zero-dependency, publication-ready graphics.">
 <meta property="og:title" content="9&nbsp; Legends – Data Visualization with R">
-<meta property="og:description" content="Base R legends: position by coordinates or keyword, ncol and horiz layout, titles, the legend box, text styling and justification, and custom legend text.">
-<meta property="og:image" content="https://viz-base.rsquaredacademy.com/img/viz-base.png">
+<meta property="og:description" content="Learn to visualize data with base R: zero-dependency, publication-ready graphics.">
+<meta property="og:image" content="https://viz-base.rsquaredacademy.com/img/social-card.png">
 <meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:site" content="@rsquaredacademy">
 <meta name="twitter:title" content="9&nbsp; Legends – Data Visualization with R">
-<meta name="twitter:description" content="Base R legends: position by coordinates or keyword, ncol and horiz layout, titles, the legend box, text styling and justification, and custom legend text.">
-<meta name="twitter:image" content="https://viz-base.rsquaredacademy.com/img/viz-base.png">
+<meta name="twitter:description" content="Learn to visualize data with base R: zero-dependency, publication-ready graphics.">
+<meta name="twitter:image" content="https://viz-base.rsquaredacademy.com/img/social-card.png">
 <meta name="citation_title" content="Data Visualization with R — Base Graphics">
 <meta name="citation_author" content="Aravind Hebbali">
 <meta name="citation_language" content="en">
@@ -161,45 +164,57 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <script src="./site-kit/rsa-signup.js" defer=""></script>
 
 
+<meta property="og:title" content="[[9]{.chapter-number}&nbsp; [Legends]{.chapter-title}]{#legend .quarto-section-identifier} – Data Visualization with R">
+<meta property="og:description" content="Learn to visualize data with base R: zero-dependency, publication-ready graphics.">
+<meta property="og:image" content="https://viz-base.rsquaredacademy.com/img/social-card.png">
+<meta property="og:site_name" content="Rsquared Academy">
+<meta property="og:image:height" content="630">
+<meta property="og:image:width" content="1200">
+<meta name="twitter:title" content="[[9]{.chapter-number}&nbsp; [Legends]{.chapter-title}]{#legend .quarto-section-identifier} – Data Visualization with R">
+<meta name="twitter:description" content="Learn to visualize data with base R: zero-dependency, publication-ready graphics.">
+<meta name="twitter:image" content="https://viz-base.rsquaredacademy.com/img/social-card.png">
+<meta name="twitter:site" content="@rsquaredacademy">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:image-height" content="630">
+<meta name="twitter:image-width" content="1200">
 </head>
 
-<body class="nav-sidebar floating">
+<body class="nav-sidebar floating nav-fixed">
 
 <div id="quarto-search-results"></div>
   <header id="quarto-header" class="headroom fixed-top">
-  <nav class="quarto-secondary-nav">
-    <div class="container-fluid d-flex">
-      <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" role="button" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
-        <i class="bi bi-layout-text-sidebar-reverse"></i>
-      </button>
-        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./legend.html"><span class="chapter-number">9</span>&nbsp; <span class="chapter-title">Legends</span></a></li></ol></nav>
-        <a class="flex-grow-1" role="navigation" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
-        </a>
-      <button type="button" class="btn quarto-search-button" aria-label="Search" onclick="window.quartoOpenSearch();">
-        <i class="bi bi-search"></i>
-      </button>
-    </div>
-  </nav>
-</header>
-<!-- content -->
-<div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article">
-<!-- sidebar -->
-  <nav id="quarto-sidebar" class="sidebar collapse collapse-horizontal quarto-sidebar-collapse-item sidebar-navigation floating overflow-auto">
-    <div class="pt-lg-2 mt-2 text-left sidebar-header">
-    <div class="sidebar-title mb-0 py-0">
-      <a href="./">Data Visualization with R</a> 
-        <div class="sidebar-tools-main">
+    <nav class="navbar navbar-expand-lg " data-bs-theme="dark">
+      <div class="navbar-container container-fluid">
+      <div class="navbar-brand-container mx-auto">
+    <a class="navbar-brand" href="./index.html">
+    <span class="navbar-title">Data Visualization with R</span>
+    </a>
+  </div>
+            <div id="quarto-search" class="" title="Search"></div>
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse" aria-controls="navbarCollapse" role="menu" aria-expanded="false" aria-label="Toggle navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+  <span class="navbar-toggler-icon"></span>
+</button>
+          <div class="collapse navbar-collapse" id="navbarCollapse">
+            <ul class="navbar-nav navbar-nav-scroll ms-auto">
+  <li class="nav-item">
+    <a class="nav-link" href="https://github.com/rsquaredacademy-publications/viz-base"> 
+<span class="menu-text">GitHub</span></a>
+  </li>  
+</ul>
+          </div> <!-- /navcollapse -->
+            <div class="quarto-navbar-tools tools-wide">
+    <a href="https://github.com/rsquaredacademy-publications/viz-base" title="Source Code" class="quarto-navigation-tool px-1" aria-label="Source Code"><i class="bi bi-github"></i></a>
     <div class="dropdown">
       <a href="" title="Download" id="quarto-navigation-tool-dropdown-0" class="quarto-navigation-tool dropdown-toggle px-1" data-bs-toggle="dropdown" aria-expanded="false" role="link" aria-label="Download"><i class="bi bi-download"></i></a>
       <ul class="dropdown-menu" aria-labelledby="quarto-navigation-tool-dropdown-0">
           <li>
-            <a class="dropdown-item sidebar-tools-main-item" href="./Data-Visualization-with-R.pdf">
+            <a class="dropdown-item quarto-navbar-tools-item" href="./Data-Visualization-with-R.pdf">
               <i class="bi bi-file-pdf pe-1"></i>
             Download PDF
             </a>
           </li>
           <li>
-            <a class="dropdown-item sidebar-tools-main-item" href="./Data-Visualization-with-R.epub">
+            <a class="dropdown-item quarto-navbar-tools-item" href="./Data-Visualization-with-R.epub">
               <i class="bi bi-journal pe-1"></i>
             Download ePub
             </a>
@@ -208,13 +223,23 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
     </div>
   <a href="" class="quarto-color-scheme-toggle quarto-navigation-tool  px-1" onclick="window.quartoToggleColorScheme(); return false;" title="Toggle dark mode"><i class="bi"></i></a>
 </div>
+      </div> <!-- /container-fluid -->
+    </nav>
+  <nav class="quarto-secondary-nav">
+    <div class="container-fluid d-flex">
+      <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" role="button" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+        <i class="bi bi-layout-text-sidebar-reverse"></i>
+      </button>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./legend.html"><span class="chapter-number">9</span>&nbsp; <span class="chapter-title">Legends</span></a></li></ol></nav>
+        <a class="flex-grow-1" role="navigation" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
+        </a>
     </div>
-      </div>
-        <div class="mt-2 flex-shrink-0 align-items-center">
-        <div class="sidebar-search">
-        <div id="quarto-search" class="" title="Search"></div>
-        </div>
-        </div>
+  </nav>
+</header>
+<!-- content -->
+<div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article page-navbar">
+<!-- sidebar -->
+  <nav id="quarto-sidebar" class="sidebar collapse collapse-horizontal quarto-sidebar-collapse-item sidebar-navigation floating overflow-auto">
     <div class="sidebar-menu-container"> 
     <ul class="list-unstyled mt-1">
         <li class="sidebar-item">
@@ -426,7 +451,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <p>Below is the line graph that represents the above GDP data set:</p>
 <div class="cell" data-layout-align="center">
 <div class="cell-output-display">
-<div id="fig-legend-motivate" class="quarto-float quarto-figure quarto-figure-center anchored" data-fig-align="center" alt="A line chart of five economic growth series for the BRICS countries between 2010 and 2014. The lines cross repeatedly and none is labelled, so there is no way to tell which line represents which country. One series falls steeply to near zero by 2014 and another falls almost to zero.">
+<div id="fig-legend-motivate" class="quarto-float quarto-figure quarto-figure-center anchored" alt="A line chart of five economic growth series for the BRICS countries between 2010 and 2014. The lines cross repeatedly and none is labelled, so there is no way to tell which line represents which country. One series falls steeply to near zero by 2014 and another falls almost to zero." data-fig-align="center">
 <figure class="quarto-float quarto-float-fig figure">
 <div aria-describedby="fig-legend-motivate-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
 <img src="legend_files/figure-html/fig-legend-motivate-1.png" class="img-fluid quarto-figure quarto-figure-center figure-img" alt="A line chart of five economic growth series for the BRICS countries between 2010 and 2014. The lines cross repeatedly and none is labelled, so there is no way to tell which line represents which country. One series falls steeply to near zero by 2014 and another falls almost to zero." width="1344">
@@ -816,7 +841,7 @@ Figure&nbsp;9.1: The problem a legend solves: five series with nothing to tell t
 <span id="cb12-7"><a href="#cb12-7" aria-hidden="true" tabindex="-1"></a>       <span class="at">lty =</span> <span class="dv">1</span>, <span class="at">col =</span> <span class="fu">c</span>(<span class="st">'blue'</span>, <span class="st">'red'</span>), <span class="at">title =</span> <span class="st">'Nations'</span>,</span>
 <span id="cb12-8"><a href="#cb12-8" aria-hidden="true" tabindex="-1"></a>       <span class="at">text.col =</span> <span class="st">'green'</span>, <span class="at">text.font =</span> <span class="dv">3</span>)}</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
-<div id="fig-legend-final" class="quarto-float quarto-figure quarto-figure-center anchored" data-fig-align="center" alt="The same five-series growth chart, now with a legend in the top left corner. The legend has a title and a bordered box, and each entry pairs a short coloured line segment with the country name it identifies.">
+<div id="fig-legend-final" class="quarto-float quarto-figure quarto-figure-center anchored" alt="The same five-series growth chart, now with a legend in the top left corner. The legend has a title and a bordered box, and each entry pairs a short coloured line segment with the country name it identifies." data-fig-align="center">
 <figure class="quarto-float quarto-float-fig figure">
 <div aria-describedby="fig-legend-final-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
 <img src="legend_files/figure-html/fig-legend-final-1.png" class="img-fluid quarto-figure quarto-figure-center figure-img" alt="The same five-series growth chart, now with a legend in the top left corner. The legend has a title and a bordered box, and each entry pairs a short coloured line segment with the country name it identifies." width="960">
@@ -1121,7 +1146,7 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
   }
     var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
     var mailtoRegex = new RegExp(/^mailto:/);
-      var filterRegex = new RegExp('/' + window.location.host + '/');
+      var filterRegex = new RegExp("https:\/\/viz-base\.rsquaredacademy\.com");
     var isInternal = (href) => {
         return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
     }
