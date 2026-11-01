@@ -9,7 +9,9 @@
         delete these tags -- with them removed Quarto emits nothing. Verified:
         docs/scatter.html gets "4 Scatter Plots", docs/line.html gets
         "5 Line Graphs". og:site_name and og:type are ours; Quarto does not
-        manage those.
+        manage those. Keep the site_name and image values in step with
+        `book: open-graph` / `book: twitter-card` in _quarto.yml: whichever copy
+        a scraper reads, it must name Rsquared Academy and the share card.
 
         The plain `description` tag matters as much as the og: ones: it is the
         text Google shows in a search result, and it was missing from every page
@@ -32,16 +34,17 @@
      metadata. Keep it that way: Quarto's own `website.google-analytics` injects
      the tag unconditionally and is silently ignored for `type: book`, so the
      gate has to be ours. -->
-<meta property="og:site_name" content="Data Visualization with R">
+<meta property="og:site_name" content="Rsquared Academy">
 <meta property="og:type" content="book">
 <meta name="description" content="Learn to visualize data with base R: zero-dependency, publication-ready graphics.">
 <meta property="og:title" content="Data Visualization with R — Base Graphics">
 <meta property="og:description" content="Learn to visualize data with base R: zero-dependency, publication-ready graphics.">
-<meta property="og:image" content="https://viz-base.rsquaredacademy.com/img/viz-base.png">
+<meta property="og:image" content="https://viz-base.rsquaredacademy.com/img/social-card.png">
 <meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:site" content="@rsquaredacademy">
 <meta name="twitter:title" content="Data Visualization with R — Base Graphics">
 <meta name="twitter:description" content="Learn to visualize data with base R: zero-dependency, publication-ready graphics.">
-<meta name="twitter:image" content="https://viz-base.rsquaredacademy.com/img/viz-base.png">
+<meta name="twitter:image" content="https://viz-base.rsquaredacademy.com/img/social-card.png">
 <meta name="citation_title" content="Data Visualization with R — Base Graphics">
 <meta name="citation_author" content="Aravind Hebbali">
 <meta name="citation_language" content="en">
