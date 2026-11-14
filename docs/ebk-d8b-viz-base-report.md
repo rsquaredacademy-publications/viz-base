@@ -357,13 +357,13 @@ on, in one place." is his opening line, not throat-clearing.
 
 `git diff 8aa1bcf..HEAD` was checked mechanically for every `.qmd`: the fenced-code delimiter lines (which carry the
 chunk labels and options), every heading line and the multiset of inline-code spans are identical before and after.
-Result: **zero changed code fences, chunk headers, headings or inline-code spans** across all 13 touched prose
+Result: **zero changed code fences, chunk headers, headings or inline-code spans** across all 14 touched prose
 files. Two near-misses were caught by the guard during the pass and restored before the chapter committed: edit 9
 in `titlelabels.qmd` had dropped the `xlim` and `ylim` spans from the sentence it rewrote, and the batch paragraph
 in `export-devices.qmd` had dropped the `png()` span. Both sentences now keep every original span, and the final
 guard run is clean.
 
-`git diff 8aa1bcf --stat` lists 13 chapter `.qmd` files plus `docs/ebk-d8b-viz-base-report.md`. No code file, data
+`git diff 8aa1bcf --stat` lists 14 chapter `.qmd` files (13 chapters and the Preface) plus `docs/ebk-d8b-viz-base-report.md`. No code file, data
 file, image, `_quarto.yml`, `_freeze` entry, script or `docs/` output is in the diff. `rosetta.qmd`,
 `references.qmd` and the rest of the book are untouched.
 
@@ -371,7 +371,7 @@ file, image, `_quarto.yml`, `_freeze` entry, script or `docs/` output is in the 
 
 Each changed chapter was rendered on its own in a throwaway copy of `git archive HEAD` outside the repo
 (`C:/Users/DELL/AppData/Local/Temp/ebk-d8b-render`), with `quarto render <file>.qmd --to html`, one chapter at a
-time, through `heavy-slot.sh`. All 13 chapters plus the Preface returned exit 0 with no error and no warning line:
+time, through `heavy-slot.sh`. All 14 changed files (13 chapters and the Preface) returned exit 0 with no error and no warning line:
 `index`, `why-base`, `intro`, `titlelabels`, `scatter`, `line`, `bar`, `box`, `hist`, `legend`, `textann`, `facet`,
 `export-devices`, `about-the-author`. `rosetta.qmd` and `references.qmd` are unchanged and were not rendered
 separately. No rendered output is committed. PDF and EPUB were not rebuilt per chapter in this pass; the edits add
