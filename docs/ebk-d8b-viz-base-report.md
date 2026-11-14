@@ -21,7 +21,8 @@ left alone and the override that protects them, so the coverage numbers are real
 | Preface | `index.qmd` | 1 | 1 |
 | Why Base R Graphics in 2026? | `why-base.qmd` | 4 | 1 |
 | Introduction | `intro.qmd` | 4 | 1 |
-| **Total** | | **9** | |
+| Title & Axis Labels | `titlelabels.qmd` | 9 | 1 |
+| **Total** | | **18** | |
 
 ## Preface
 
@@ -61,3 +62,23 @@ pointer are already in his voice.
 Refusals: The chapter orientation and the bulleted syllabus stay (§3a.6, KEEP trait 4). The three-system
 description, the ggplot2 credit to Hadley Wickham and the lattice credit to Deepayan Sarkar are untouched, as are
 the six dispatch-case headings and the webR cell.
+
+
+## Title & Axis Labels
+
+| file:line | principle | before | after |
+| :-- | :-- | :-- | :-- |
+| `titlelabels.qmd:19` | 3, 9 | In the previous chapter, we created plots which did not have any title or labels. Such plots are of no use to any one as they do not indicate what the X and Y axis represent or the primary information being communicated by the plot. The `title` and `labels` play an important part in making the plot holistic. | In the previous chapter, we created plots without any title or labels. Such plots are of no use to anyone, as they do not indicate what the X and Y axis represent or the primary information being communicated by the plot. The `title` and `labels` play an important part in making a plot complete. |
+| `titlelabels.qmd:24` | 9 | We will explore both the above methods one by one, and you can choose the method most convenient to you. | We will explore both methods one by one, and you can choose the one most convenient to you. |
+| `titlelabels.qmd:38` | 1, 3 | You can add a title to the plot using the `main` argument in the `plot()` function. Ensure that the title is enclosed in single/double quotes as it is a string. | We can add a title to the plot using the `main` argument in the `plot()` function. Ensure that the title is enclosed in single or double quotes, as it is a string. |
+| `titlelabels.qmd:50` | 1, 3 | You can add a subtitle to the plot using the `sub` argument in the `plot()` function. The subtitle will appear below the X axis label. Ensure that the subtitle is enclosed in single/double quotes as it is a string. | We can add a subtitle to the plot using the `sub` argument in the `plot()` function. The subtitle will appear below the X axis label. Ensure that the subtitle is enclosed in single or double quotes, as it is a string. |
+| `titlelabels.qmd:60` | 3, 9 | In the plots created in the previous examples, the axis labels appear as `mtcars$mpg` and `mtcars$disp`. It is not the best way to name the axis and it will make more sense to use names that describe the data. | In the plots created so far, the axis labels appear as `mtcars$mpg` and `mtcars$disp`. That is not the best way to name an axis; it makes more sense to use names that describe the data. |
+| `titlelabels.qmd:71` | 3, 13 | Let us recreate the plots from the previous examples but this time we will use the `title()` instead of the `plot()` function. | Let us recreate the plots from the previous examples, this time adding the labels with `title()` instead of `plot()`. |
+| `titlelabels.qmd:83` | 2 | This can be achieved using the `ann` (annotate) argument in the `plot()` function and set it to `FALSE`. | To do this, set the `ann` (annotate) argument in the `plot()` function to `FALSE`. |
+| `titlelabels.qmd:98` | 13, 3, 9 | The axis labels are legible and not overwritten. You can use either the `plot()` function or the `title()` function to add title, subtitle and axis labels but ensure that in case you use the `title()` function, set `ann` argument to `FALSE` in the `plot()` function. | The axis labels are legible and not overwritten. You can use either the `plot()` function or the `title()` function to add title, subtitle and axis labels. If you use `title()`, set the `ann` argument to `FALSE` in `plot()`. |
+| `titlelabels.qmd:102` | 2, 3 | By default, the `plot()` function will take into account the `min` and `max` values of the variable(s) and set the range for the axis. We can modify the range by using the `xlim` and `ylim` arguments in the `plot()` function. Both the `xlim` and `ylim` arguments take 2 values as inputes. The first value is the minimum value for the axis and the second value is the maximum value for the axis. | By default, the `plot()` function takes the `min` and `max` values of the variable(s) and sets the range for the axis. We can modify the range with the `xlim` and `ylim` arguments in the `plot()` function. Both the `xlim` and `ylim` arguments take 2 values as inputs: the first is the minimum value for the axis, the second is the maximum value for the axis. |
+
+Refusals: "Ensure that the title is enclosed…" keeps "ensure that", a guardrail rather than a hedge (§2.10 override).
+"Do you notice that the axis labels are overwritten?" stays: it is his rhetorical question before the fix (§2.7).
+"Keep in mind that the axis ranges cannot be modified using the `title()` function." stays verbatim, as does the
+syntax table and the webR cell.

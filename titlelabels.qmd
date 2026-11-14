@@ -16,12 +16,12 @@ to a plot and to modify:
 
 - the range of an axis
 
-In the previous chapter, we created plots which did not have any title or labels. Such plots are of no use to any one as they do not indicate what the X and Y axis represent or the primary information being communicated by the plot. The `title` and `labels` play an important part in making the plot holistic. There are two ways to add them to a plot:
+In the previous chapter, we created plots without any title or labels. Such plots are of no use to anyone, as they do not indicate what the X and Y axis represent or the primary information being communicated by the plot. The `title` and `labels` play an important part in making a plot complete. There are two ways to add them to a plot:
 
 - use the relevant arguments within the `plot()` function
 - use the `title()` function
 
-We will explore both the above methods one by one, and you can choose the method most convenient to you. Let us begin with the `plot()` function:
+We will explore both methods one by one, and you can choose the one most convenient to you. Let us begin with the `plot()` function:
 
 
 ## Syntax
@@ -35,7 +35,7 @@ We will explore both the above methods one by one, and you can choose the method
 
 ## Title
 
-You can add a title to the plot using the `main` argument in the `plot()` function. Ensure that the title is enclosed in single/double quotes as it is a string. Let us create a scatter plot of `disp` and `mpg` from `mtcars` data set, and add a title to it.
+We can add a title to the plot using the `main` argument in the `plot()` function. Ensure that the title is enclosed in single or double quotes, as it is a string. Let us create a scatter plot of `disp` and `mpg` from the `mtcars` data set, and add a title to it.
 
 ```{r}
 #| label: fig-tl-plot
@@ -47,7 +47,7 @@ plot(mtcars$disp, mtcars$mpg,
 
 ## Subtitle
 
-You can add a subtitle to the plot using the `sub` argument in the `plot()` function. The subtitle will appear below the X axis label. Ensure that the subtitle is enclosed in single/double quotes as it is a string. Let us add a subtitle to the plot we created in the previous example:
+We can add a subtitle to the plot using the `sub` argument in the `plot()` function. The subtitle will appear below the X axis label. Ensure that the subtitle is enclosed in single or double quotes, as it is a string. Let us add a subtitle to the plot we created in the previous example:
 
 ```{r}
 plot(mtcars$disp, mtcars$mpg, 
@@ -57,7 +57,7 @@ plot(mtcars$disp, mtcars$mpg,
 
 ## Axis Labels
 
-In the plots created in the previous examples, the axis labels appear as `mtcars$mpg` and `mtcars$disp`. It is not the best way to name the axis and it will make more sense to use names that describe the data. Let us modify the axis labels using the `xlab` and `ylab` arguments in the `plot()` function:
+In the plots created so far, the axis labels appear as `mtcars$mpg` and `mtcars$disp`. That is not the best way to name an axis; it makes more sense to use names that describe the data. Let us modify the axis labels using the `xlab` and `ylab` arguments in the `plot()` function:
 
 ```{r}
 plot(mtcars$disp, mtcars$mpg, 
@@ -68,7 +68,7 @@ plot(mtcars$disp, mtcars$mpg,
 
 ## title()
 
-We can add title, subtitle and axis labels using the `title()` function as well. Let us recreate the plots from the previous examples but this time we will use the `title()` instead of the `plot()` function. We will continue to use the `plot()` function to create the plot.
+We can add title, subtitle and axis labels using the `title()` function as well. Let us recreate the plots from the previous examples, this time adding the labels with `title()` instead of `plot()`. We will continue to use the `plot()` function to create the plot.
 
 ```{r}
 # create scatter plot
@@ -80,7 +80,7 @@ title(main = 'Displacement vs Miles Per Gallon',
       xlab = 'Displacement', ylab = 'Miles Per Gallon')
 ```
 
-Do you notice that the axis labels are overwritten? This happens because the `plot()` function adds the default labels and we add a new set of labels without modifying the existing ones. The solution is to instruct the `plot()` function not to add any labels to the X and Y axis. This can be achieved using the `ann` (annotate) argument in the `plot()` function and set it to `FALSE`. Let us try it:
+Do you notice that the axis labels are overwritten? This happens because the `plot()` function adds the default labels and we add a new set of labels without modifying the existing ones. The solution is to instruct the `plot()` function not to add any labels to the X and Y axis. To do this, set the `ann` (annotate) argument in the `plot()` function to `FALSE`. Let us try it:
 
 ```{r}
 #| label: fig-tl-title
@@ -95,11 +95,11 @@ title(main = 'Displacement vs Miles Per Gallon',
       xlab = 'Displacement', ylab = 'Miles Per Gallon')
 ```
 
-The axis labels are legible and not overwritten. You can use either the `plot()` function or the `title()` function to add title, subtitle and axis labels but ensure that in case you use the `title()` function, set `ann` argument to `FALSE` in the `plot()` function.
+The axis labels are legible and not overwritten. You can use either the `plot()` function or the `title()` function to add title, subtitle and axis labels. If you use `title()`, set the `ann` argument to `FALSE` in `plot()`.
 
 ## Axis Range
 
-In certain cases, you would want to modify the range of the axis of the plots. By default, the `plot()` function will take into account the `min` and `max` values of the variable(s) and set the range for the axis. We can modify the range by using the `xlim` and `ylim` arguments in the `plot()` function. Both the `xlim` and `ylim` arguments take 2 values as inputes. The first value is the minimum value for the axis and the second value is the maximum value for the axis. The `plot()` function will return an error if we do not specify two values for both `xlim` and `ylim` arguments. Let us recreate the plot from the previous examples but change the range of both the X and Y axis:
+In certain cases, you would want to modify the range of the axis of the plots. By default, the `plot()` function takes the `min` and `max` values of the variable(s) and sets the range for the axis. We can modify the range with the `xlim` and `ylim` arguments in the `plot()` function. Both the `xlim` and `ylim` arguments take 2 values as inputs: the first is the minimum value for the axis, the second is the maximum value for the axis. The `plot()` function will return an error if we do not specify two values for both `xlim` and `ylim` arguments. Let us recreate the plot from the previous examples but change the range of both the X and Y axis:
 
 ```{r}
 #| label: fig-tl-final
