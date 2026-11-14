@@ -28,7 +28,8 @@ left alone and the override that protects them, so the coverage numbers are real
 | Box Plots | `box.qmd` | 12 | 1 |
 | Histograms | `hist.qmd` | 14 | 1 |
 | Legends | `legend.qmd` | 20 | 1 |
-| **Total** | | **119** | |
+| Text Annotations | `textann.qmd` | 21 | 1 |
+| **Total** | | **140** | |
 
 ## Preface
 
@@ -248,3 +249,34 @@ Refusals: The rhetorical questions in the opening paragraph stay, including "Wou
 integral…"; only their punctuation and a stray "right" changed. The GDP vintage callout, the BRICS values, the
 keyword list, the legend-box option table and the `legend()` calls are untouched. "Let us look at a few examples to
 understand how it works." stays as his hand-off.
+
+## Text Annotations
+
+| file:line | principle | before | after |
+| :-- | :-- | :-- | :-- |
+| `textann.qmd:9` | 1, 2, 9 | There are occasions when you want to display additional information in a plot. This is usually achieved by adding text either inside the plot or on the margins. For example, you might want to label a line/bar or add formulas to better communicate what is shown in the plot. The idea is to use the available space within/outside the plot to provide additional information that can be useful to the end users. We will learn to add text inside as well as on the margins of the plot. This is accomplished using the following two functions: | There are occasions when you want to display additional information in a plot. We usually do this by adding text either inside the plot or on the margins. For example, you might want to label a line or a bar, or add a formula to communicate better what is shown. The idea is to use the available space within or outside the plot to provide information that can be useful to the reader. We will add text inside as well as on the margins, using the following two functions: |
+| `textann.qmd:16` | 9 | Let us take a quick look at the syntax of both the functions: | Let us take a quick look at the syntax of both functions: |
+| `textann.qmd:29` | 1, 2 | To add text inside a plot, the following arguments must be supplied to the `text()` function: | To add text inside a plot, supply the following arguments to the `text()` function: |
+| `textann.qmd:42` | 3, 9 | Ensure that the text is enclosed in single/double quotes and the coordinates provided are within the range of the **X** and **Y** axis variables. | Ensure that the text is enclosed in single or double quotes, and that the coordinates are within the range of the **X** and **Y** axis variables. |
+| `textann.qmd:46` | 1 | The color of the text can be modified using the `col` argument in the `text()` function. | We can modify the color of the text using the `col` argument in the `text()` function. |
+| `textann.qmd:53` | 4 (§3a.3), 2 | The below plot depicts the appearance of the text for different values of the `col` argument: | The plot below shows the appearance of the text for different values of the `col` argument: |
+| `textann.qmd:69` | 1 | The font of the text can be modified using the `font` argument in the `text()` function. | We can modify the font of the text using the `font` argument in the `text()` function. |
+| `textann.qmd:76` | 4 (§3a.3), 2 | The below plot depicts the appearance of the text for different values of the `font` argument: | The plot below shows the appearance of the text for different values of the `font` argument: |
+| `textann.qmd:92` | 1 | The font family of the text can be modified using the `family` argument in the `text()` function. | We can modify the font family of the text using the `family` argument in the `text()` function. |
+| `textann.qmd:99` | 4 (§3a.3), 2 | The below plot depicts the appearance of the text for different values of the `family` argument: | The plot below shows the appearance of the text for different values of the `family` argument: |
+| `textann.qmd:115` | 1 | The font size of the text can be modified using the `cex` argument in the `text()` function. | We can modify the font size of the text using the `cex` argument in the `text()` function. |
+| `textann.qmd:122` | 4 (§3a.3), 2 | The below plot depicts the appearance of the text for different values of the `cex` argument: | The plot below shows the appearance of the text for different values of the `cex` argument: |
+| `textann.qmd:138` | 1, 2, 3, 9 | The `mtext()` function allows the user to place the text on the margins of the plot. It allows the user to modify the location of the text in multiple ways and we will explore them one by one. To begin with, let us add text to the plot using the `mtext()` function. The minimum input you need to provide is the text itself. Below is a simple example: | The `mtext()` function places text on the margins of the plot. It allows us to modify the location of the text in several ways, and we will explore them one by one. To begin with, let us add text to the plot using `mtext()`. The minimum input is the text itself: |
+| `textann.qmd:145` | 3, 9 | As you can see, the text is placed on the margin of the plot and not inside the plot. | As you can see, the text is placed on the margin of the plot, not inside it. |
+| `textann.qmd:149` | 9 | If takes values 1 to 4, each representing one side of the plot. | It takes values 1 to 4, each representing one side of the plot. |
+| `textann.qmd:156` | 4 (§3a.3), 9 | The below plot displays the appearance of the text when differnt options for `side` argument are supplied: | The plot below displays the appearance of the text when different options for the `side` argument are supplied: |
+| `textann.qmd:172` | 13, 4 | As the value increases, the text is placed farther from the margin and outside the plot. As the value decreases, the text is placed inside the plot and farther from the margin. Below is an example where the text is placed outside the plot as the value is greater than 1. | As the value increases, the text moves farther from the margin and outside the plot; as it decreases, the text moves inside the plot and farther from the margin. In the example below, the text is placed outside the plot because the value is greater than 1. |
+| `textann.qmd:186` | 4 (§3a.3) | The below plot displays the appearance of the text when different values are supplied to the `line` argument: | The plot below displays the appearance of the text when different values are supplied to the `line` argument: |
+| `textann.qmd:202` | 2, 3, 4 | The `adj` argument is used for horizontal alignment of the text. It takes values between 0 and 1. If set to `0`, the text will be left aligned and at `1`, it will be right aligned. Below is an example where the text is left aligned as `adj` is set to `0`. | The `adj` argument controls the horizontal alignment of the text. It takes values between 0 and 1. If set to `0`, the text is left aligned; at `1`, it is right aligned. In the example below, the text is left aligned as `adj` is set to `0`. |
+| `textann.qmd:216` | 4 (§3a.3) | The below plot displays the appearance of the text when different values are supplied to the `adj` argument: | The plot below displays the appearance of the text when different values are supplied to the `adj` argument: |
+| `textann.qmd:256` | 9 | The distance is measured in character widths and the default value is `0.5`. | The distance is measured in character widths, and the default is `0.5`. |
+
+Refusals: The two function bullets (`text()` and `mtext()`) and the syntax chunk stay. "Below is a simple example:"
+at line 35 stays: it is a whole-sentence forward pointer, but his habit and the paragraph after the chunk explains
+what appears, so only the duplicate pointer at 138 was folded. The `pos` list, the four gallery figures and the
+webR-free chapter's code are untouched.
