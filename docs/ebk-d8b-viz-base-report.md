@@ -293,7 +293,7 @@ webR-free chapter's code are untouched.
 | `facet.qmd:9` | 1, 2, 3, 9 | Often, it is useful to have multiple plots in the same frame as it allows us to get a comprehensive view of a particular variable or compare among different variables. The Graphics package offers two methods to combine multiple plots. `par()` can be used to set graphical parameters regarding plot layout using the mfcol and mfrow arguments. `layout()` serves the same purpose but offers more flexibility by allowing us to modify the height and width of rows and columns. | Often it is useful to have multiple plots in the same frame: it gives a comprehensive view of one variable or lets us compare different variables. The Graphics package offers two methods to combine plots. We can use `par()` to set graphical parameters for the plot layout, using the mfcol and mfrow arguments. `layout()` serves the same purpose but is more flexible, because it allows us to modify the height and width of rows and columns. |
 | `facet.qmd:11` | 2, 9 | `par()` allows us to customize the graphical parameters(title, axis, font, color, size) for a particular session. For combining multiple plots, we can use the graphical parameters mfrow and mfcol. These two parameters create a matrix of plots filled by rows and columns respectively. | `par()` allows us to customize the graphical parameters (title, axis, font, color, size) for a particular session. For combining multiple plots, we can use the graphical parameters mfrow and mfcol, which create a matrix of plots filled by rows and columns respectively. Let us combine plots using both parameters. |
 | `facet.qmd:20` | 3, 9 | The `mfrow` parameter combines plots filled by rows i.e it takes two values, the number of rows and number of columns and then starts filling the plots by row. Below is the syntax for mfrow. | The `mfrow` parameter combines plots filled by rows: it takes two values, the number of rows and the number of columns, and then fills the plots by row. Below is the syntax for mfrow: |
-| `facet.qmd:31` | 9 | Let us begin by combining 4 plots in 2 rows and 2 columns. The plots will be filled by rows as we are using the mfrow parameter: | The plots are filled by rows because we are using the mfrow parameter: (the repeated "Let us begin by combining 4 plots in 2 rows and 2 columns" sentence is dropped; it is an exact duplicate of the lead-in at line 27) |
+| `facet.qmd:31` | 9 | Let us begin by combining 4 plots in 2 rows and 2 columns. The plots will be filled by rows as we are using the mfrow parameter: | The plots are filled by rows because we are using the mfrow parameter: |
 | `facet.qmd:168` | 3, 9 | What happens if we specify lesser or more number of graphs? In the next two examples, we will specify lesser or more number of graphs than we ask the par() function to combine. | What happens if we specify fewer or more graphs? In the next two examples, we will specify fewer or more graphs than we ask the par() function to combine. |
 | `facet.qmd:171` | 9 | We will specify that 4 plots need to be combined in 2 rows and 2 columns but provide only 3 graphs. | We will specify 4 plots in 2 rows and 2 columns but provide only 3 graphs. |
 | `facet.qmd:174` | 9 | We will specify that 4 plots need to be combined in 2 rows and 2 columns but specify 6 graphs instead of 4. | We will specify 4 plots in 2 rows and 2 columns but provide 6 graphs instead. |
@@ -306,7 +306,7 @@ webR-free chapter's code are untouched.
 | `facet.qmd:391` | 3, 2 | The heights arguments is used to modify the height of the rows and based on the number of rows specified in the layout, we can specify the height of each row. | The heights argument modifies the height of the rows, and based on the number of rows specified in the layout, we can give the height of each row. |
 | `facet.qmd:411` | 9 | let us combine plots using both the widths and heights option | let us combine plots using both the widths and heights options: |
 
-Refusals: The one duplicate clause at line 31 is the only deletion, and it is reported in its row. "The magic of the
+Refusals: The one deletion is the repeated "Let us begin by combining 4 plots in 2 rows and 2 columns" sentence at line 31, an exact duplicate of the lead-in at line 27; it is reported in its row. "The magic of the
 layout() function begins here." stays: it is a rare light line (§3a.12), not hype. The nine case-study headings and
 their anchors, the `mfrow`/`mfcol` code comments and the matrix chunks are untouched.
 
@@ -352,3 +352,56 @@ Chang are already plain and in his voice; the numbers, editions, URLs and datase
 
 Refusals: The reference entries, the dataset bullets and the reproduction table stay. "Everything this book depends
 on, in one place." is his opening line, not throat-clearing.
+
+## Guard
+
+`git diff 8aa1bcf..HEAD` was checked mechanically for every `.qmd`: the fenced-code delimiter lines (which carry the
+chunk labels and options), every heading line and the multiset of inline-code spans are identical before and after.
+Result: **zero changed code fences, chunk headers, headings or inline-code spans** across all 13 touched prose
+files. Two near-misses were caught by the guard during the pass and restored before the chapter committed: edit 9
+in `titlelabels.qmd` had dropped the `xlim` and `ylim` spans from the sentence it rewrote, and the batch paragraph
+in `export-devices.qmd` had dropped the `png()` span. Both sentences now keep every original span, and the final
+guard run is clean.
+
+`git diff 8aa1bcf --stat` lists 13 chapter `.qmd` files plus `docs/ebk-d8b-viz-base-report.md`. No code file, data
+file, image, `_quarto.yml`, `_freeze` entry, script or `docs/` output is in the diff. `rosetta.qmd`,
+`references.qmd` and the rest of the book are untouched.
+
+## Renders
+
+Each changed chapter was rendered on its own in a throwaway copy of `git archive HEAD` outside the repo
+(`C:/Users/DELL/AppData/Local/Temp/ebk-d8b-render`), with `quarto render <file>.qmd --to html`, one chapter at a
+time, through `heavy-slot.sh`. All 13 chapters plus the Preface returned exit 0 with no error and no warning line:
+`index`, `why-base`, `intro`, `titlelabels`, `scatter`, `line`, `bar`, `box`, `hist`, `legend`, `textann`, `facet`,
+`export-devices`, `about-the-author`. `rosetta.qmd` and `references.qmd` are unchanged and were not rendered
+separately. No rendered output is committed. PDF and EPUB were not rebuilt per chapter in this pass; the edits add
+no character or construct that is format-specific.
+
+## Not done, and follow-ups
+
+- **Nothing in the brief was skipped.** Every chapter was read; `rosetta.qmd` and `references.qmd` needed no prose
+  change and are reported as zeros. No chapter was restructured, no example changed, no new sentence claims
+  anything the original did not.
+- **Spelling was not swept.** The book uses British spellings ("colour", "centred", "recognise", "artefact",
+  "summarised"). Only words inside a sentence already being rewritten were touched; a book-wide US/UK decision is
+  Aravind's (§2.8, §4.3).
+- **"learnt" is kept** in `scatter.qmd` and `bar.qmd` where it appears: protected trait (V §7.7), and the guide
+  leaves the choice open (§4.3).
+- **Figure captions that do not match their chunks** (protected, so not edited here; these are example/caption
+  work for a later pass):
+  - `titlelabels.qmd:106` says "Title, subtitle and enlarged title text combined", but the chunk at 108 only sets
+    `xlim` and `ylim`.
+  - `hist.qmd:189` says "Frequency labels drawn on top of the histogram bars", but the chunk at 191 draws
+    `hist(mtcars$mpg, col = 'blue')` with no labels.
+  - `hist.qmd:218` says "A right-skewed sample drawn with `rbeta()`", but the chunk at 220 draws `mtcars$mpg`
+    with border colours.
+  - `legend.qmd:389` says "A complete legend…" for the five-series chart, but the chunk at 391 plots only India
+    and China.
+  - `bar.qmd:258` says the counts are "drawn beside each other rather than stacked", but the chunk at 260 has no
+    `beside = TRUE`.
+  - `facet.qmd:78` says "drawn with par(mfcol)", but the chunk at 84 calls `par(mfrow = c(2, 1))`.
+- **`rosetta.qmd` table wording:** the `pairs(df)` row says "`pairs()` has no base-R equivalent in ggplot2 at
+  all", which is inverted (it has no ggplot2 equivalent). A factual wording fix, not a style change, so it is
+  listed here rather than edited.
+- **The chapter endings** were left as they are. §3a.4's rule-plus-course-pointer close would add new sentences;
+  that is content work, and this pass adds none.
