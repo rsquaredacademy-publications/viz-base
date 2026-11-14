@@ -20,7 +20,8 @@ left alone and the override that protects them, so the coverage numbers are real
 | :-- | :-- | --: | --: |
 | Preface | `index.qmd` | 1 | 1 |
 | Why Base R Graphics in 2026? | `why-base.qmd` | 4 | 1 |
-| **Total** | | **5** | |
+| Introduction | `intro.qmd` | 4 | 1 |
+| **Total** | | **9** | |
 
 ## Preface
 
@@ -46,3 +47,17 @@ Refusals: The measured argument stays as written. The em-dash parenthetical that
 benchmark, the startup overhead and the CRAN metadata are measurements with numbers and package names; their
 wording is left alone. The decision-tree prose, the "coordinates in, marks out" bullets and the closing chapter
 pointer are already in his voice.
+
+
+## Introduction
+
+| file:line | principle | before | after |
+| :-- | :-- | :-- | :-- |
+| `intro.qmd:25` | 1, 2 | - Explore: Visualization helps in exploring and explaining patterns and trends<br>- Detect: Patterns or anomalies in data can be detected by looking at graphs<br>- Make sense: Possible to make sense of large amount of data efficiently and in time<br>- Communicate: Easy to communicate and share the insights from data | - Explore: Visualization helps us explore and explain patterns and trends<br>- Detect: We can detect patterns or anomalies in data by looking at graphs<br>- Make sense: We can make sense of a large amount of data efficiently and in time<br>- Communicate: We can communicate and share the insights from data |
+| `intro.qmd:38` | 9 | - It is part of base R and is the fundamental package for visualizing data.<br>- It has a lot of good features and we can create all the basic plots using it. | - It is part of base R and the fundamental package for visualizing data.<br>- It has many good features, and we can create all the basic plots with it. |
+| `intro.qmd:52` | 3 | Use the `help()` to learn more about `plot()` function and `mtcars` data set. | Use `help()` to learn more about the `plot()` function and the `mtcars` data set. |
+| `intro.qmd:73` | 1, 2 | We will use the following different data inputs and observe the kind of plots that are generated: | We will use the following data inputs and observe the kind of plot each one generates: |
+
+Refusals: The chapter orientation and the bulleted syllabus stay (§3a.6, KEEP trait 4). The three-system
+description, the ggplot2 credit to Hadley Wickham and the lattice credit to Deepayan Sarkar are untouched, as are
+the six dispatch-case headings and the webR cell.
