@@ -30,7 +30,8 @@ left alone and the override that protects them, so the coverage numbers are real
 | Legends | `legend.qmd` | 20 | 1 |
 | Text Annotations | `textann.qmd` | 21 | 1 |
 | Faceting | `facet.qmd` | 15 | 1 |
-| **Total** | | **155** | |
+| Production Export & Graphical Devices | `export-devices.qmd` | 5 | 1 |
+| **Total** | | **160** | |
 
 ## Preface
 
@@ -305,3 +306,18 @@ webR-free chapter's code are untouched.
 Refusals: The one duplicate clause at line 31 is the only deletion, and it is reported in its row. "The magic of the
 layout() function begins here." stays: it is a rare light line (§3a.12), not hype. The nine case-study headings and
 their anchors, the `mfrow`/`mfcol` code comments and the matrix chunks are untouched.
+
+## Production Export & Graphical Devices
+
+| file:line | principle | before | after |
+| :-- | :-- | :-- | :-- |
+| `export-devices.qmd:52` | 13 | That stack is why forgetting `dev.off()` leaves you with a device you cannot write to — and why a script that never calls it dumps its plots into a file called `Rplots.pdf` you did not ask for. | That stack is why forgetting `dev.off()` leaves you with a device you cannot write to. It is also why a script that never calls it dumps its plots into a file called `Rplots.pdf` you did not ask for. |
+| `export-devices.qmd:198` | 13, 3 | Put the `dev.off()` outside the loop and you will open 3 devices, write 3 plots to whichever was active when each `png()` call was made — which is only the first — and leave two open at the end. | Put the `dev.off()` outside the loop and you open 3 devices. All 3 plots are written to the device opened by the first `png()` call, and two devices are left open at the end. |
+| `export-devices.qmd:349` | 3 | Without it you draw two axes over each other, which is a common and confusing bug. | Without it, you draw two axes over each other, which is a common and confusing bug. |
+| `export-devices.qmd:386` | 3 | It no longer does — R 4.1 and later ship palettes designed to be distinguishable under the common forms of colour vision deficiency. | It no longer does: R 4.1 and later ship palettes designed to be distinguishable under the common forms of colour vision deficiency. |
+| `export-devices.qmd:402` | 3 | Hand-typing a hex code from memory or from a blog post is how palettes get subtly wrong. | Hand-typing a hex code from memory or from a blog post is how palettes end up subtly wrong. |
+
+Refusals: The chapter already reads in the target voice — short sentences, function first, the argument named
+before the run. The three device callouts, the `par()` blockquote, the three `<details>` solutions and the
+cheatsheet footer stay. "Colour" is kept throughout: the book uses British spelling, and a spelling sweep is a
+book-wide decision, not a chapter edit (§2.8, §4.3). No code line, number or file name changed.
