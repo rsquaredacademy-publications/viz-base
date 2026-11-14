@@ -25,7 +25,8 @@ left alone and the override that protects them, so the coverage numbers are real
 | Scatter Plots | `scatter.qmd` | 13 | 1 |
 | Line Graphs | `line.qmd` | 19 | 1 |
 | Bar Plots | `bar.qmd` | 23 | 1 |
-| **Total** | | **73** | |
+| Box Plots | `box.qmd` | 12 | 1 |
+| **Total** | | **85** | |
 
 ## Preface
 
@@ -171,3 +172,24 @@ learnt…" keeps "learnt" (protected trait). The color-recycling paragraphs (120
 each other and both stay: they belong to two parallel sections (bar color, border color), so the pair is
 deliberate, not an accidental repeat. The bivariate table paragraph keeps its explanation of rows and columns after
 the chunk.
+
+## Box Plots
+
+| file:line | principle | before | after |
+| :-- | :-- | :-- | :-- |
+| `box.qmd:21` | 3, 6, 8 | The box plot is a standardized way of displaying the distribution of data based on the five number summary: minimum, first quartile, median, third quartile, and maximum. Box plots are useful for detecting outliers and for comparing distributions. It shows the shape, central tendency and variability of the data. | A box plot is a standardized way of displaying the distribution of data based on the five-number summary: minimum, first quartile, median, third quartile and maximum. Box plots are useful for detecting outliers and for comparing distributions, and they show the shape, central tendency and variability of the data. |
+| `box.qmd:25` | 8, 9 | A boxplot splits the data set into quartiles. The body of the boxplot consists of a "box" (hence, the name), which goes from the first quartile (Q1) to the third quartile (Q3). Within the box, a vertical line is drawn at the Q2, the median of the data set. | A box plot splits the data set into quartiles. The body of the box plot consists of a "box" (hence the name), which goes from the first quartile (Q1) to the third quartile (Q3). Within the box, a vertical line is drawn at Q2, the median of the data set. |
+| `box.qmd:47` | 8 | Let us add some color to the boxplot. | Let us add some color to the box plot. |
+| `box.qmd:55` | 9 | We can specify a separate color for the border of the box in the boxplot. | We can specify a separate color for the border of the box. |
+| `box.qmd:63` | 3, 2 | If range is positive, the whiskers extend to the most extreme data point which is no more than range times the interquartile range from the box. A value of zero causes the whiskers to extend to the data extremes. | If range is positive, the whiskers extend to the most extreme data point that is no more than range times the interquartile range from the box. A value of zero makes the whiskers extend to the data extremes. |
+| `box.qmd:92` | 9 | The default value is `TRUE`. | The default is `TRUE`. |
+| `box.qmd:113` | 8, 3 | the boxes are drawn with widths proportional to the square-roots of the number of observations in the groups. | the boxes are drawn with widths proportional to the square root of the number of observations in each group. |
+| `box.qmd:131` | 4 (§3a.3), 9, 13 | Let us use the `mtcars` data set and compare the distribution of Miles Per Gallon (`mpg`) for automobiles with different number of cylinders (`cyl`). We will do this by specifying a formula as shown in the below example. | Let us use the `mtcars` data set and compare the distribution of Miles Per Gallon (`mpg`) for automobiles with different numbers of cylinders (`cyl`), specifying a formula as shown in the example below. |
+| `box.qmd:137` | 3, 9, 4 | We use the formula when we are comparing the distribution of a continuous variable across different levels of a categorical variable. If we want to compare the distributions without using a categorical variable, we need to specify the variable separately in the `boxplot()` function. Below is an illustration of this method. We will split the `mpg` data using the `split()` function and plot them separately. The `split()` function splits a continuous variable based on the levels of a categorical variable. | We use the formula when we compare the distribution of a continuous variable across the levels of a categorical variable. To compare the distributions without a categorical variable, we specify the variables separately in the `boxplot()` function. Below is an illustration of this method: we split the `mpg` data using the `split()` function and plot the parts separately. `split()` splits a continuous variable based on the levels of a categorical variable. |
+| `box.qmd:151` | 3, 9 | If you are comparing the distribution of a continuous variable for the different levels of a categorical variable, use the formula. If you are comparing distribution of independent variables, specify all the variables in the `boxplot()` function. | If you are comparing the distribution of a continuous variable across the levels of a categorical variable, use the formula. If you are comparing the distributions of independent variables, specify all the variables in the `boxplot()` function. |
+| `box.qmd:155` | 9, 4 | We can specify as many colors as the boxes or we can specify the same color for all of them. Below are two examples where we specify the same color in the first one and different colors in the second one. | We can specify as many colors as there are boxes, or the same color for all of them. Below are two examples: the same color in the first, different colors in the second. |
+| `box.qmd:172` | 9 | A notch is drawn in each side of the boxes and if the notches of the plots do not overlap, it is strong evidence that the medians differ. | A notch is drawn in each side of the boxes, and if the notches do not overlap, it is strong evidence that the medians differ. |
+
+Refusals: "Let us conclude by adding a title and axis labels to the box plot." stays as his hand-off. The five-number
+summary is a domain definition, so only its punctuation changed. The `hsb` provenance sentence keeps its numbers
+and the UCLA credit. The `varwidth` gallery and the two-column figure are protected.
