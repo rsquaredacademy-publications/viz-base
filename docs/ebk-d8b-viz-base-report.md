@@ -31,7 +31,10 @@ left alone and the override that protects them, so the coverage numbers are real
 | Text Annotations | `textann.qmd` | 21 | 1 |
 | Faceting | `facet.qmd` | 15 | 1 |
 | Production Export & Graphical Devices | `export-devices.qmd` | 5 | 1 |
-| **Total** | | **160** | |
+| Base R ↔ ggplot2: A Rosetta Stone | `rosetta.qmd` | 0 | 1 |
+| References | `references.qmd` | 0 | 1 |
+| About the Author | `about-the-author.qmd` | 1 | 1 |
+| **Total** | | **161** | |
 
 ## Preface
 
@@ -321,3 +324,31 @@ Refusals: The chapter already reads in the target voice — short sentences, fun
 before the run. The three device callouts, the `par()` blockquote, the three `<details>` solutions and the
 cheatsheet footer stay. "Colour" is kept throughout: the book uses British spelling, and a spelling sweep is a
 book-wide decision, not a chapter edit (§2.8, §4.3). No code line, number or file name changed.
+
+## About the Author
+
+| file:line | principle | before | after |
+| :-- | :-- | :-- | :-- |
+| `about-the-author.qmd:19` | 3 | free and open source education initiative with focus on data science and analytics. | free and open source education initiative with a focus on data science and analytics. |
+
+Refusals: The biography, the Masters and Economics wording, the package list and the GitHub link stay. Third
+person is correct for a biography, so it is not converted to the instructional "we".
+
+
+## Base R ↔ ggplot2: A Rosetta Stone
+
+No prose change. The appendix is a lookup table plus short explanations that already pass the checklist: each row
+names one construct, the explanatory sentences are short, and the "when to switch" column is the rule.
+Reported as a zero so the coverage is honest.
+
+Refusals: The table rows, inline code and the "Never" / "Stay in base" verdicts are protected. One row reads
+"`pairs()` has no base-R equivalent in ggplot2 at all", which is inverted; it is a factual wording issue, listed
+under follow-ups rather than rewritten here (no new claims, no meaning changes).
+
+## References
+
+No prose change. This is a bibliography and a provenance note. The annotations on Murrell, Venables and Ripley and
+Chang are already plain and in his voice; the numbers, editions, URLs and dataset provenance are protected.
+
+Refusals: The reference entries, the dataset bullets and the reproduction table stay. "Everything this book depends
+on, in one place." is his opening line, not throat-clearing.
