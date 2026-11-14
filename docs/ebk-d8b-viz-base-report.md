@@ -23,7 +23,8 @@ left alone and the override that protects them, so the coverage numbers are real
 | Introduction | `intro.qmd` | 4 | 1 |
 | Title & Axis Labels | `titlelabels.qmd` | 9 | 1 |
 | Scatter Plots | `scatter.qmd` | 13 | 1 |
-| **Total** | | **31** | |
+| Line Graphs | `line.qmd` | 19 | 1 |
+| **Total** | | **50** | |
 
 ## Preface
 
@@ -106,3 +107,32 @@ syntax table and the webR cell.
 Refusals: "Some of us may agree that black is beautiful…" stays: it is a light line, allowed by §3a.12, and only its
 punctuation changed. The `pch` gallery, the two-variable figure and the webR cell are untouched. "learnt" (line
 24) is kept: it is a protected trait (V §7.7) and the guide leaves the spelling to Aravind (§4.3).
+
+
+## Line Graphs
+
+| file:line | principle | before | after |
+| :-- | :-- | :-- | :-- |
+| `line.qmd:9` | 3 | In this chapter, we will build line graphs. To be more specific we will learn to | In this chapter, we will build line graphs. More specifically, we will learn to |
+| `line.qmd:24` | 3, 9, 2 | It allows us to specify the symbol that must be used to represent the data. Let us begin by building a simple line graph. We will use the `AirPassengers` data set in this chapter. Before we begin to build the plot, let us take a quick look at the data in order to understand what we are plotting. | It allows us to specify the symbol used to represent the data. Let us begin with a simple line graph, using the `AirPassengers` data set. Before we build the plot, let us take a quick look at the data to understand what we are plotting. |
+| `line.qmd:30` | 3 | In order to build a line plot, we will set the `type` argument in the `plot()` function to **l** (line). There are other values which `type` takes but we will explore them later. | To build a line plot, we set the `type` argument in the `plot()` function to **l** (line). There are other values which `type` takes, but we will explore them later. |
+| `line.qmd:43` | 1, 2 | Another option is to have the points and lines overplotted. It can be achieved by setting the `type` argument to **o** (overplotted). | Another option is to overplot the points and lines. We do this by setting the `type` argument to **o** (overplotted). |
+| `line.qmd:49` | 3 | You can also create lines without points but with breaks instead by setting the `type` argument to **c**. | You can also create lines without points but with breaks instead, by setting the `type` argument to **c**. |
+| `line.qmd:57` | 9, 11 | So now we know how to build a simple line graph. Let us now make this plot more elegant by modifying its appearance. Let us begin by adding some color to the line using the `col` argument in the `plot()` function. | So now we know how to build a simple line graph. Let us make this plot more elegant by modifying its appearance, beginning with some color on the line using the `col` argument in the `plot()` function. |
+| `line.qmd:71` | 1, 2, 4 | The line type can be modified using the `lty` argument. It takes values from 1 to 6 and the default value is 1. Below is an example: | We can modify the line type using the `lty` argument. It takes values from 1 to 6, and the default is 1: |
+| `line.qmd:84` | 4 (§3a.3) | Let us look at all the line types in the below example: | Let us look at all the line types in the example below: |
+| `line.qmd:97` | 9 | Instead of specifying the numbers 1:6, you can use their description as well. | Instead of specifying the numbers 1:6, you can use their descriptions. |
+| `line.qmd:112` | 1, 9 | The width of the lines can be modified using the `lwd` argument in the `plot()` function. The default value for width is 1. | We can modify the width of the lines using the `lwd` argument in the `plot()` function. The default width is 1. |
+| `line.qmd:118` | 4 (§3a.3), 9 | In the below example, we look at the width of the lines relative to the default value. | In the example below, we look at the width of the lines relative to the default. |
+| `line.qmd:133` | 3 | We can enhance the points in the line plot in the same way as we enhanced the points in the scatter plot in this previous chapter. | We can enhance the points in the line plot in the same way as we enhanced the points in the scatter plot in the previous chapter. |
+| `line.qmd:139` | 2, 9 | One drawback of the above method is that the color of the line and the points will be the same. | One drawback of this method is that the line and the points share the same color. |
+| `line.qmd:144` | 9 | In the next example, let us first build the line plot, add points using the `points()` function and then specify separate colors to the line and the points. | In the next example, let us build the line plot, add points using the `points()` function, and then give the line and the points separate colors. |
+| `line.qmd:153` | 2 | If you want to compare variables, you would want to add additional lines to the line graph. In R, this can be achieved using the `lines()` function. | If you want to compare variables, you will want to add additional lines to the line graph. In R, we do this with the `lines()` function. |
+| `line.qmd:155` | 2, 10 | **Before you add additional lines, it is important to ensure that the range of both the axis are modified to accommodate the data of the additional lines. | **Before you add additional lines, ensure that the range of both axes is modified to accommodate the data of the additional lines. |
+| `line.qmd:157` | 9 | Let us now create a line plot and add an additional line using the `lines()` function.We will use some dummy data for this example: | Let us now create a line plot and add an additional line using the `lines()` function. We will use some dummy data for this example: |
+| `line.qmd:166` | 3, 9 | Let us recreate the plot but this time we will modify the range of the axis to accommodate the second line (data2). | Let us recreate the plot, this time modifying the range of the axis to accommodate the second line (data2). |
+| `line.qmd:285` | 3 | Finally let us enhance the plot by adding a title and modifying the axis labels. | Finally, let us enhance the plot by adding a title and modifying the axis labels. |
+
+Refusals: The "Uncertainty and Annotation" sections already read in the target voice: short sentences, function
+first, then the argument. `segments()`, `arrows()`, `polygon()` and their code are untouched. "If you do not like
+plain lines…" stays as his invitation. The two figures and their alt text are protected.
