@@ -26,7 +26,8 @@ left alone and the override that protects them, so the coverage numbers are real
 | Line Graphs | `line.qmd` | 19 | 1 |
 | Bar Plots | `bar.qmd` | 23 | 1 |
 | Box Plots | `box.qmd` | 12 | 1 |
-| **Total** | | **85** | |
+| Histograms | `hist.qmd` | 14 | 1 |
+| **Total** | | **99** | |
 
 ## Preface
 
@@ -193,3 +194,26 @@ the chunk.
 Refusals: "Let us conclude by adding a title and axis labels to the box plot." stays as his hand-off. The five-number
 summary is a domain definition, so only its punctuation changed. The `hsb` provenance sentence keeps its numbers
 and the UCLA credit. The `varwidth` gallery and the two-column figure are protected.
+
+## Histograms
+
+| file:line | principle | before | after |
+| :-- | :-- | :-- | :-- |
+| `hist.qmd:17` | 2, 9 | A histogram is a plot that can be used to examine the shape and spread of continuous data. | A histogram examines the shape and spread of continuous data. |
+| `hist.qmd:25` | 1, 2, 3 | To construct a histogram, the data is split into intervals called bins. The intervals may or may not be equal sized. For each bin, the number of data points that fall into it are counted (frequency). The Y axis of the histogram represents the frequency and the X axis represents the variable. | To construct a histogram, we split the data into intervals called bins. The intervals may or may not be equal sized. For each bin, we count the number of data points that fall into it (frequency). The Y axis of the histogram represents the frequency, and the X axis represents the variable. |
+| `hist.qmd:51` | 1, 4 | Histograms are created using the `hist()` function in R. The minimum input required to create a bare bones histogram is a continuous variable. Below is an example: | We create histograms using the `hist()` function in R. The minimum input required for a bare bones histogram is a continuous variable: |
+| `hist.qmd:57` | 3, 1, 9 | The `hist()` functions returns details of the histogram which can be accessed by assigning the histogram to a variable. Let us assign the above histogram to a variable `h` and use the `$` symbol to access the details stored in the variable. | The `hist()` function returns details of the histogram, which we can access by assigning the histogram to a variable. Let us assign the above histogram to a variable `h` and use the `$` symbol to access the details stored in it. |
+| `hist.qmd:93` | 4 (§3a.3), 9 | The below plot displays histograms with different number of bins: | The plot below displays histograms with a different number of bins: |
+| `hist.qmd:111` | 2 | If we want to create histograms with specific intervals, the `breaks` argument can be supplied with the intervals. | To create histograms with specific intervals, supply the intervals to the `breaks` argument. |
+| `hist.qmd:117` | 3 | If you observe the Y axis, it does not represent frequency any more. | If you observe the Y axis, it no longer represents frequency. |
+| `hist.qmd:135` | 3, 2 | When multiplied by the class width, the product will always sum upto 1. | When multiplied by the class width, the product always sums to 1. |
+| `hist.qmd:141` | 9, 3 | Before we end this section, we need to learn about one more way to specify the intervals of the histogram, algorithms. | Before we end this section, we need one more way to specify the intervals of the histogram: algorithms. |
+| `hist.qmd:147` | 4 (§3a.3) | In the below plot, we examine how th algorithms work: | In the plot below, we examine how the algorithms work: |
+| `hist.qmd:175` | 1, 2, 9 | The same result can be achieved by using the `probability` argument as well. It takes only logical values as inputs and the default is `FALSE`. If set to `TRUE`, the Y axis will represent the frequency density instead of counts. | We can achieve the same result with the `probability` argument. It takes only logical values as input, and the default is `FALSE`. If set to `TRUE`, the Y axis represents the frequency density instead of counts. |
+| `hist.qmd:183` | 3, 9 | If the number of colors specified is less than the number of bars, the colors are recycled. | If we specify fewer colors than there are bars, the colors are recycled. |
+| `hist.qmd:208` | 9 | Colors can be specified for the borders of the histogrambars using the `border` argument. | Colors can be specified for the borders of the histogram bars using the `border` argument. |
+| `hist.qmd:225` | 9, 3, 2 | In certain cases, we might want to add the frequency counts on the histogram bars. It is easier for the user to know the frequencies of each bin when they are present on top of the bars. Let us add the frequency counts on top of the bars using the `labels` argument. We can either set it to `TRUE` or a character vector containing the label values. Let us look at both the methods. | In certain cases, we might want to add the frequency counts on the histogram bars; it is easier for the reader to know the frequency of each bin when it appears on top of the bar. Let us add the counts using the `labels` argument. We can either set it to `TRUE` or supply a character vector of label values. Let us look at both methods. |
+
+Refusals: The frequency-density formulas, the `breaks` values and the `rbeta()` seeds are `numbers, data and code`
+and are untouched. "What is frequency density?" stays, as his question before the definition. The `hist()` gallery
+and the figure captions are protected. The two "Different Colors" headings and their chunks stay.
