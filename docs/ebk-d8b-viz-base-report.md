@@ -29,7 +29,8 @@ left alone and the override that protects them, so the coverage numbers are real
 | Histograms | `hist.qmd` | 14 | 1 |
 | Legends | `legend.qmd` | 20 | 1 |
 | Text Annotations | `textann.qmd` | 21 | 1 |
-| **Total** | | **140** | |
+| Faceting | `facet.qmd` | 15 | 1 |
+| **Total** | | **155** | |
 
 ## Preface
 
@@ -280,3 +281,27 @@ Refusals: The two function bullets (`text()` and `mtext()`) and the syntax chunk
 at line 35 stays: it is a whole-sentence forward pointer, but his habit and the paragraph after the chunk explains
 what appears, so only the duplicate pointer at 138 was folded. The `pos` list, the four gallery figures and the
 webR-free chapter's code are untouched.
+
+## Faceting
+
+| file:line | principle | before | after |
+| :-- | :-- | :-- | :-- |
+| `facet.qmd:9` | 1, 2, 3, 9 | Often, it is useful to have multiple plots in the same frame as it allows us to get a comprehensive view of a particular variable or compare among different variables. The Graphics package offers two methods to combine multiple plots. `par()` can be used to set graphical parameters regarding plot layout using the mfcol and mfrow arguments. `layout()` serves the same purpose but offers more flexibility by allowing us to modify the height and width of rows and columns. | Often it is useful to have multiple plots in the same frame: it gives a comprehensive view of one variable or lets us compare different variables. The Graphics package offers two methods to combine plots. We can use `par()` to set graphical parameters for the plot layout, using the mfcol and mfrow arguments. `layout()` serves the same purpose but is more flexible, because it allows us to modify the height and width of rows and columns. |
+| `facet.qmd:11` | 2, 9 | `par()` allows us to customize the graphical parameters(title, axis, font, color, size) for a particular session. For combining multiple plots, we can use the graphical parameters mfrow and mfcol. These two parameters create a matrix of plots filled by rows and columns respectively. | `par()` allows us to customize the graphical parameters (title, axis, font, color, size) for a particular session. For combining multiple plots, we can use the graphical parameters mfrow and mfcol, which create a matrix of plots filled by rows and columns respectively. Let us combine plots using both parameters. |
+| `facet.qmd:20` | 3, 9 | The `mfrow` parameter combines plots filled by rows i.e it takes two values, the number of rows and number of columns and then starts filling the plots by row. Below is the syntax for mfrow. | The `mfrow` parameter combines plots filled by rows: it takes two values, the number of rows and the number of columns, and then fills the plots by row. Below is the syntax for mfrow: |
+| `facet.qmd:31` | 9 | Let us begin by combining 4 plots in 2 rows and 2 columns. The plots will be filled by rows as we are using the mfrow parameter: | The plots are filled by rows because we are using the mfrow parameter: (the repeated "Let us begin by combining 4 plots in 2 rows and 2 columns" sentence is dropped; it is an exact duplicate of the lead-in at line 27) |
+| `facet.qmd:168` | 3, 9 | What happens if we specify lesser or more number of graphs? In the next two examples, we will specify lesser or more number of graphs than we ask the par() function to combine. | What happens if we specify fewer or more graphs? In the next two examples, we will specify fewer or more graphs than we ask the par() function to combine. |
+| `facet.qmd:171` | 9 | We will specify that 4 plots need to be combined in 2 rows and 2 columns but provide only 3 graphs. | We will specify 4 plots in 2 rows and 2 columns but provide only 3 graphs. |
+| `facet.qmd:174` | 9 | We will specify that 4 plots need to be combined in 2 rows and 2 columns but specify 6 graphs instead of 4. | We will specify 4 plots in 2 rows and 2 columns but provide 6 graphs instead. |
+| `facet.qmd:217` | 3, 9 | At the core of the layout() function is a matrix. We communicate the structure in which the plots must be combined using a matrix. As such, the layout function is more flexible compared to the par() function. | At the core of the layout() function is a matrix: we communicate the structure in which the plots must be combined through it. As such, the layout function is more flexible than the par() function. |
+| `facet.qmd:270` | 3, 9 | We want to combine 3 plots and the first plot should occupy both the columns in row 1 and the next 2 plots should be in row 2. If you look at the matrix below, 1 is specified twice and since the matrix is filled by row, it will occupy both the columns in the first row. Similarly the first plot will occupy the entire first row. | We want to combine 3 plots: the first should occupy both columns in row 1, and the next 2 should be in row 2. If you look at the matrix below, 1 is specified twice, and since the matrix is filled by row, the first plot will occupy both columns of the first row. |
+| `facet.qmd:291` | 9 | The plots must be filled by rows and the third plot must occupy both the columns of the second row while the other two plots will be placed in the first row. | The plots must be filled by rows, and the third plot must occupy both columns of the second row while the other two are placed in the first row. |
+| `facet.qmd:311` | 9 | The plots must be filled by columns and the first plot must occupy both the rows of the first column while the other two plots will be placed in the second column in two rows. | The plots must be filled by columns, and the first plot must occupy both rows of the first column while the other two are placed in the second column. |
+| `facet.qmd:332` | 9 | The plots must be filled by columns and the third plot must occupy both the rows of the second column while the other two plots will be placed in the first column in two rows. | The plots must be filled by columns, and the third plot must occupy both rows of the second column while the other two are placed in the first column. |
+| `facet.qmd:349` | 3, 9, 2 | The widths and heights arguments in the layout() function address the above mentioned issue. Let us check them out one by one: The widths argument is used for specifying the width of the columns. Based on the number of columns in the layout, you can specify the width of each column. | The widths and heights arguments in the layout() function address this issue. Let us check them out one by one. The widths argument specifies the width of the columns; based on the number of columns in the layout, you can give the width of each column. |
+| `facet.qmd:391` | 3, 2 | The heights arguments is used to modify the height of the rows and based on the number of rows specified in the layout, we can specify the height of each row. | The heights argument modifies the height of the rows, and based on the number of rows specified in the layout, we can give the height of each row. |
+| `facet.qmd:411` | 9 | let us combine plots using both the widths and heights option | let us combine plots using both the widths and heights options: |
+
+Refusals: The one duplicate clause at line 31 is the only deletion, and it is reported in its row. "The magic of the
+layout() function begins here." stays: it is a rare light line (§3a.12), not hype. The nine case-study headings and
+their anchors, the `mfrow`/`mfcol` code comments and the matrix chunks are untouched.

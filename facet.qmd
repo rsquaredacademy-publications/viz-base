@@ -6,9 +6,9 @@ description: "Combine base R plots into one figure: par(mfrow) and par(mfcol) pa
 
 ## Introduction
 
-In this chapter, we will learn how to combine multiple plots. Often, it is useful to have multiple plots in the same frame as it allows us to get a comprehensive view of a particular variable or compare among different variables. The Graphics package offers two methods to combine multiple plots. `par()` can be used to set graphical parameters regarding plot layout using the mfcol and mfrow arguments. `layout()` serves the same purpose but offers more flexibility by allowing us to modify the height and width of rows and columns.
+In this chapter, we will learn how to combine multiple plots. Often it is useful to have multiple plots in the same frame: it gives a comprehensive view of one variable or lets us compare different variables. The Graphics package offers two methods to combine plots. We can use `par()` to set graphical parameters for the plot layout, using the mfcol and mfrow arguments. `layout()` serves the same purpose but is more flexible, because it allows us to modify the height and width of rows and columns.
 
-`par()` allows us to customize the graphical parameters(title, axis, font, color, size) for a particular session. For combining multiple plots, we can use the graphical parameters mfrow and mfcol. These two parameters create a matrix of plots filled by rows and columns respectively. Let us combine plots using both the above parameters.
+`par()` allows us to customize the graphical parameters (title, axis, font, color, size) for a particular session. For combining multiple plots, we can use the graphical parameters mfrow and mfcol, which create a matrix of plots filled by rows and columns respectively. Let us combine plots using both parameters.
 
 |Option|Description|Arguments|
 |:-------|:--------|:-----|
@@ -17,7 +17,7 @@ In this chapter, we will learn how to combine multiple plots. Often, it is usefu
 
 ## Row
 
-The `mfrow` parameter combines plots filled by rows i.e it takes two values, the number of rows and number of columns and then starts filling the plots by row. Below is the syntax for mfrow.
+The `mfrow` parameter combines plots filled by rows: it takes two values, the number of rows and the number of columns, and then fills the plots by row. Below is the syntax for mfrow:
 
 ```{r facetsyntax, eval=FALSE}
 # mfrow syntax
@@ -28,7 +28,7 @@ Let us begin by combining 4 plots in 2 rows and 2 columns:
 
 ### Case Study 1 {#cs-mfrow-1}
 
-Let us begin by combining 4 plots in 2 rows and 2 columns. The plots will be filled by rows as we are using the mfrow parameter:
+The plots are filled by rows because we are using the mfrow parameter:
 
 ```{r, fig.align='center', fig.height=7, fig.width=7, collapse=TRUE}
 #| label: fig-facet-mfrow
@@ -165,13 +165,13 @@ par(init)
 
 ## Special Cases
 
-What happens if we specify lesser or more number of graphs? In the next two examples, we will specify lesser or more number of graphs than we ask the par() function to combine. Let us see what happens in such instances:
+What happens if we specify fewer or more graphs? In the next two examples, we will specify fewer or more graphs than we ask the par() function to combine. Let us see what happens in such instances:
 
 Case 1: Lesser number of graphs specified
-We will specify that 4 plots need to be combined in 2 rows and 2 columns but provide only 3 graphs.
+We will specify 4 plots in 2 rows and 2 columns but provide only 3 graphs.
 
 Case 2: Extra graph specified
-We will specify that 4 plots need to be combined in 2 rows and 2 columns but specify 6 graphs instead of 4.
+We will specify 4 plots in 2 rows and 2 columns but provide 6 graphs instead.
 
 ### Case Study 7 {#cs-mfrow-7}
 
@@ -214,7 +214,7 @@ par(init)
 
 ## Layout
 
-At the core of the layout() function is a matrix. We communicate the structure in which the plots must be combined using a matrix. As such, the layout function is more flexible compared to the par() function.
+At the core of the layout() function is a matrix: we communicate the structure in which the plots must be combined through it. As such, the layout function is more flexible than the par() function.
 
 |Option|Description|Value|
 |:-------|:--------|:-----|
@@ -267,7 +267,7 @@ layout(1)
 
 Combine 3 plots in 2 rows/2 columns filled by rows
 
-The magic of the layout() function begins here. We want to combine 3 plots and the first plot should occupy both the columns in row 1 and the next 2 plots should be in row 2. If you look at the matrix below, 1 is specified twice and since the matrix is filled by row, it will occupy both the columns in the first row. Similarly the first plot will occupy the entire first row. It will be crystal clear when you see the plot.
+The magic of the layout() function begins here. We want to combine 3 plots: the first should occupy both columns in row 1, and the next 2 should be in row 2. If you look at the matrix below, 1 is specified twice, and since the matrix is filled by row, the first plot will occupy both columns of the first row. It will be crystal clear when you see the plot.
 
 
 ```{r facet11, fig.align='center', fig.height=7, fig.width=7, collapse=TRUE}
@@ -288,7 +288,7 @@ layout(1)
 
 Combine 3 plots in 2 rows/2 columns filled by rows
 
-The plots must be filled by rows and the third plot must occupy both the columns of the second row while the other two plots will be placed in the first row. The matrix would look like this:
+The plots must be filled by rows, and the third plot must occupy both columns of the second row while the other two are placed in the first row. The matrix would look like this:
 
 ```{r facet12, fig.align='center', fig.height=7, fig.width=7, collapse=TRUE}
 # specify the matrix
@@ -308,7 +308,7 @@ layout(1)
 
 Combine 3 plots in 2 rows/2 columns filled by columns
 
-The plots must be filled by columns and the first plot must occupy both the rows of the first column while the other two plots will be placed in the second column in two rows. The matrix would look like this:
+The plots must be filled by columns, and the first plot must occupy both rows of the first column while the other two are placed in the second column. The matrix would look like this:
 
 
 ```{r facet13, fig.align='center', fig.height=7, fig.width=7, collapse=TRUE}
@@ -329,7 +329,7 @@ layout(1)
 
 Combine 3 plots in 2 rows/2 columns filled by columns
 
-The plots must be filled by columns and the third plot must occupy both the rows of the second column while the other two plots will be placed in the first column in two rows. The matrix would look like this:
+The plots must be filled by columns, and the third plot must occupy both rows of the second column while the other two are placed in the first column. The matrix would look like this:
 
 
 ```{r facet14, fig.align='center', fig.height=7, fig.width=7, collapse=TRUE}
@@ -346,7 +346,7 @@ hist(mtcars$mpg)
 layout(1)
 ```
 
-In all the layouts created so far, we have kept the size of the rows and columns equal. What if you want to modify the width and height of the columns and rows? The widths and heights arguments in the layout() function address the above mentioned issue. Let us check them out one by one: The widths argument is used for specifying the width of the columns. Based on the number of columns in the layout, you can specify the width of each column. Let us look at some examples.
+In all the layouts created so far, we have kept the size of the rows and columns equal. What if you want to modify the width and height of the columns and rows? The widths and heights arguments in the layout() function address this issue. Let us check them out one by one. The widths argument specifies the width of the columns; based on the number of columns in the layout, you can give the width of each column. Let us look at some examples.
 
 ### Case Study 7 {#cs-layout-7}
 
@@ -388,7 +388,7 @@ boxplot(mtcars$mpg)
 layout(1)
 ```
 
-The heights arguments is used to modify the height of the rows and based on the number of rows specified in the layout, we can specify the height of each row. 
+The heights argument modifies the height of the rows, and based on the number of rows specified in the layout, we can give the height of each row. 
 
 ### Case Study 9 {#cs-layout-9}
 
@@ -408,7 +408,7 @@ layout(1)
 
 ## Putting it all together
 
-Before we end this section, let us combine plots using both the widths and heights option
+Before we end this section, let us combine plots using both the widths and heights options:
 
 ```{r facet18, fig.align='center', fig.height=7, fig.width=7, collapse=TRUE}
 # specify the matrix
