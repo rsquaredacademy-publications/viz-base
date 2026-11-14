@@ -8,20 +8,20 @@ description: "Base R scatter plots with plot(): control point shape with pch, si
 
 In this chapter, we will learn how to create scatter plots. 
 
-- adding color to the points
-- modify shape of the points
-- modify size of the points
+- add color to the points
+- modify the shape of the points
+- modify the size of the points
 
 
 ## Basic Plot
 
-Let us recreate the plot that we had created in Chapter 2 by using the `mtcars` data set. We will use the `disp` (displacement) and `mpg` (miles per gallon) variables. `disp` will be on the X axis and `mpg` will be on the Y axis.
+Let us recreate the plot we created in Chapter 2, using the `mtcars` data set. We will use the `disp` (displacement) and `mpg` (miles per gallon) variables, with `disp` on the X axis and `mpg` on the Y axis.
 
 ```{r}
 plot(mtcars$disp, mtcars$mpg)
 ```
 
-We have created a very basic plot and any one looking at it for the first time will get confused with the axis labels `mtcars$disp` and `mtcars$mpg`. Let us put into practice what we learnt in Chapter 3, and add a title to the plot, and make the axis labels more meaningful.
+We have created a very basic plot, and anyone looking at it for the first time will be confused by the axis labels `mtcars$disp` and `mtcars$mpg`. Let us put into practice what we learnt in Chapter 3, and add a title and more meaningful axis labels.
 
 ```{r}
 plot(mtcars$disp, mtcars$mpg,
@@ -29,18 +29,18 @@ plot(mtcars$disp, mtcars$mpg,
      xlab = 'Displacement', ylab = 'Miles Per Gallon')
 ```
 
-Now the plot clearly communicates that it represents the relationship between the displacement and mileage of cars. Now the color of the points in the plot is black by default. Some of us may agree that black is beautiful but not all of us will like it. As a first step in enhancing the way our plot looks, let us change the shape of the points. 
+Now the plot clearly communicates that it represents the relationship between displacement and mileage of cars. The color of the points is black by default. Some of us may agree that black is beautiful, but not all of us will like it. As a first step in improving the way our plot looks, let us change the shape of the points. 
 
 ## Shape
 
-The shape of the point can be specified using the `pch` argument. It will take values between **0** and **25**. Below is an example:
+We can specify the shape of the point using the `pch` argument. It takes values between **0** and **25**:
 
 ```{r}
 # point shape
 plot(mtcars$disp, mtcars$mpg, pch = 6)
 ```
 
-Let us check out a few of the other shapes:
+Let us look at a few of the other shapes:
 
 ```{r, echo=FALSE, fig.align='center', fig.width=10, fig.height=10}
 #| label: fig-scatter-pch
@@ -56,7 +56,7 @@ for (i in values) {
 par(init)
 ```
 
-We can specify the shape based on a third (categorical variable as well). In the below plot, the shape is based on the levels of the categorical variable `cyl` (number of cylinders) from the `mtcars` data set. Note that `nlevels(factor(mtcars$cyl))` returns a single value (`3`), so it would give every point the same shape — instead, map each observation to its own level with `as.numeric(factor(...))`:
+We can specify the shape based on a third (categorical) variable as well. In the plot below, the shape is based on the levels of the categorical variable `cyl` (number of cylinders) from the `mtcars` data set. Note that `nlevels(factor(mtcars$cyl))` returns a single value (`3`), so it would give every point the same shape. Instead, map each observation to its own level with `as.numeric(factor(...))`:
 
 ```{r}
 #| label: fig-scatter-factor
@@ -69,14 +69,14 @@ legend('topright', legend = c('4 cyl', '6 cyl', '8 cyl'), pch = 1:3)
 
 ## Size
 
-The size of the points in the scatter plot can be specified using the `cex` argument in the `plot()` function. The default value for `cex` is 1. 
+We can specify the size of the points in the scatter plot using the `cex` argument in the `plot()` function. The default value for `cex` is 1. 
 
 ```{r}
 # point size
 plot(mtcars$disp, mtcars$mpg, cex = 1.5)
 ```
 
-The below plots show the size of the points for values relative to 1.
+The plots below show the size of the points for values relative to 1.
 
 ```{r, echo=FALSE, fig.align='center', fig.width=10, fig.height=10}
 #| label: fig-scatter-cex
@@ -95,21 +95,21 @@ par(init)
 
 ## Color
 
-We can specify a border color for the points using the `col` argument and a background color using the `bg` argument. The background color can be specified only for points whose `pch` argument takes values between **21** and **25**. Let us look at some examples to understand this distinction between border and background color.
+We can specify a border color for the points using the `col` argument and a background color using the `bg` argument. The background color can be specified only for points whose `pch` value is between **21** and **25**. Let us look at some examples of the distinction between border and background color:
 
 ```{r}
 # shape between 0 and 21
 plot(mtcars$disp, mtcars$mpg, pch = 5, col = 'blue', bg = 'red')
 ```
 
-You can observe that although we have specified a background color using the `bg` argument, we do not see the red background color as the value specified for the `pch` (shape) argument is not between 21 and 25. In the next example, we will use a value between 21 and 25 so that the `pch` argument is effective.
+Although we have specified a background color using the `bg` argument, we do not see the red background, because the value of the `pch` (shape) argument is not between 21 and 25. In the next example, we use a value between 21 and 25 so that the `pch` argument is effective.
 
 ```{r}
 # shape between 22 and 25
 plot(mtcars$disp, mtcars$mpg, pch = 24, col = 'red', bg = 'blue')
 ```
 
-The color of the points can be specified using (levels) of a categorical variable as well. In the next example, we will use the `cyl` variable to specify the color of the points.
+We can also specify the color of the points using the levels of a categorical variable. In the next example, we use the `cyl` variable to specify the color of the points.
 
 ```{r}
 #| label: fig-scatter-two-vars
@@ -119,7 +119,7 @@ The color of the points can be specified using (levels) of a categorical variabl
 plot(mtcars$disp, mtcars$mpg, pch = 5, col = as.numeric(factor(mtcars$cyl)))
 ```
 
-Since `cyl` is a categorical variable with 3 levels, we can see that the points now have 3 different colors. The above method is useful when you want to segregate the points in a scatter plot based on a third variable.
+Since `cyl` is a categorical variable with 3 levels, the points now have 3 different colors. This method is useful when you want to separate the points in a scatter plot based on a third variable.
 
 ## Try it live {.unnumbered}
 

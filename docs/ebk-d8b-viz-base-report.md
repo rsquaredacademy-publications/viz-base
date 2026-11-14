@@ -22,7 +22,8 @@ left alone and the override that protects them, so the coverage numbers are real
 | Why Base R Graphics in 2026? | `why-base.qmd` | 4 | 1 |
 | Introduction | `intro.qmd` | 4 | 1 |
 | Title & Axis Labels | `titlelabels.qmd` | 9 | 1 |
-| **Total** | | **18** | |
+| Scatter Plots | `scatter.qmd` | 13 | 1 |
+| **Total** | | **31** | |
 
 ## Preface
 
@@ -82,3 +83,26 @@ Refusals: "Ensure that the title is enclosed…" keeps "ensure that", a guardrai
 "Do you notice that the axis labels are overwritten?" stays: it is his rhetorical question before the fix (§2.7).
 "Keep in mind that the axis ranges cannot be modified using the `title()` function." stays verbatim, as does the
 syntax table and the webR cell.
+
+
+## Scatter Plots
+
+| file:line | principle | before | after |
+| :-- | :-- | :-- | :-- |
+| `scatter.qmd:11` | 13 | - adding color to the points<br>- modify shape of the points<br>- modify size of the points | - add color to the points<br>- modify the shape of the points<br>- modify the size of the points |
+| `scatter.qmd:18` | 3, 9 | Let us recreate the plot that we had created in Chapter 2 by using the `mtcars` data set. We will use the `disp` (displacement) and `mpg` (miles per gallon) variables. `disp` will be on the X axis and `mpg` will be on the Y axis. | Let us recreate the plot we created in Chapter 2, using the `mtcars` data set. We will use the `disp` (displacement) and `mpg` (miles per gallon) variables, with `disp` on the X axis and `mpg` on the Y axis. |
+| `scatter.qmd:24` | 3, 9 | We have created a very basic plot and any one looking at it for the first time will get confused with the axis labels `mtcars$disp` and `mtcars$mpg`. Let us put into practice what we learnt in Chapter 3, and add a title to the plot, and make the axis labels more meaningful. | We have created a very basic plot, and anyone looking at it for the first time will be confused by the axis labels `mtcars$disp` and `mtcars$mpg`. Let us put into practice what we learnt in Chapter 3, and add a title and more meaningful axis labels. |
+| `scatter.qmd:32` | 3, 9 | Now the plot clearly communicates that it represents the relationship between the displacement and mileage of cars. Now the color of the points in the plot is black by default. Some of us may agree that black is beautiful but not all of us will like it. As a first step in enhancing the way our plot looks, let us change the shape of the points. | Now the plot clearly communicates that it represents the relationship between displacement and mileage of cars. The color of the points is black by default. Some of us may agree that black is beautiful, but not all of us will like it. As a first step in improving the way our plot looks, let us change the shape of the points. |
+| `scatter.qmd:36` | 1, 2, 4 | The shape of the point can be specified using the `pch` argument. It will take values between **0** and **25**. Below is an example: | We can specify the shape of the point using the `pch` argument. It takes values between **0** and **25**: |
+| `scatter.qmd:43` | 9 | Let us check out a few of the other shapes: | Let us look at a few of the other shapes: |
+| `scatter.qmd:59` | 3, 4, 13 | We can specify the shape based on a third (categorical variable as well). In the below plot, the shape is based on the levels of the categorical variable `cyl` (number of cylinders) from the `mtcars` data set. Note that `nlevels(factor(mtcars$cyl))` returns a single value (`3`), so it would give every point the same shape — instead, map each observation to its own level with `as.numeric(factor(...))`: | We can specify the shape based on a third (categorical) variable as well. In the plot below, the shape is based on the levels of the categorical variable `cyl` (number of cylinders) from the `mtcars` data set. Note that `nlevels(factor(mtcars$cyl))` returns a single value (`3`), so it would give every point the same shape. Instead, map each observation to its own level with `as.numeric(factor(...))`: |
+| `scatter.qmd:72` | 1 | The size of the points in the scatter plot can be specified using the `cex` argument in the `plot()` function. | We can specify the size of the points in the scatter plot using the `cex` argument in the `plot()` function. |
+| `scatter.qmd:79` | 4 (§3a.3) | The below plots show the size of the points for values relative to 1. | The plots below show the size of the points for values relative to 1. |
+| `scatter.qmd:98` | 2, 9 | The background color can be specified only for points whose `pch` argument takes values between **21** and **25**. Let us look at some examples to understand this distinction between border and background color. | The background color can be specified only for points whose `pch` value is between **21** and **25**. Let us look at some examples of the distinction between border and background color: |
+| `scatter.qmd:105` | 3, 9 | You can observe that although we have specified a background color using the `bg` argument, we do not see the red background color as the value specified for the `pch` (shape) argument is not between 21 and 25. In the next example, we will use a value between 21 and 25 so that the `pch` argument is effective. | Although we have specified a background color using the `bg` argument, we do not see the red background, because the value of the `pch` (shape) argument is not between 21 and 25. In the next example, we use a value between 21 and 25 so that the `pch` argument is effective. |
+| `scatter.qmd:112` | 2, 1, 9 | The color of the points can be specified using (levels) of a categorical variable as well. In the next example, we will use the `cyl` variable to specify the color of the points. | We can also specify the color of the points using the levels of a categorical variable. In the next example, we use the `cyl` variable to specify the color of the points. |
+| `scatter.qmd:122` | 2, 9 | Since `cyl` is a categorical variable with 3 levels, we can see that the points now have 3 different colors. The above method is useful when you want to segregate the points in a scatter plot based on a third variable. | Since `cyl` is a categorical variable with 3 levels, the points now have 3 different colors. This method is useful when you want to separate the points in a scatter plot based on a third variable. |
+
+Refusals: "Some of us may agree that black is beautiful…" stays: it is a light line, allowed by §3a.12, and only its
+punctuation changed. The `pch` gallery, the two-variable figure and the webR cell are untouched. "learnt" (line
+24) is kept: it is a protected trait (V §7.7) and the guide leaves the spelling to Aravind (§4.3).
