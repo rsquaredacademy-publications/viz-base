@@ -22,10 +22,10 @@ In simple words, data visualization is the representation of data in graphical f
 
 ## Why visualize data?
 
-- Explore: Visualization helps in exploring and explaining patterns and trends
-- Detect: Patterns or anomalies in data can be detected by looking at graphs
-- Make sense: Possible to make sense of large amount of data efficiently and in time
-- Communicate: Easy to communicate and share the insights from data
+- Explore: Visualization helps us explore and explain patterns and trends
+- Detect: We can detect patterns or anomalies in data by looking at graphs
+- Make sense: We can make sense of a large amount of data efficiently and in time
+- Communicate: We can communicate and share the insights from data
 
 ## R Graphics System
 
@@ -35,8 +35,8 @@ In simple words, data visualization is the representation of data in graphical f
 
 ### Graphics
 
-- It is part of base R and is the fundamental package for visualizing data.
-- It has a lot of good features and we can create all the basic plots using it.
+- It is part of base R and the fundamental package for visualizing data.
+- It has many good features, and we can create all the basic plots with it.
 
 ### ggplot2
 
@@ -49,7 +49,7 @@ The [lattice](https://CRAN.R-project.org/package=lattice) package is inspired by
 
 ## Getting Help
 
-Use the `help()` to learn more about `plot()` function and `mtcars` data set.
+Use `help()` to learn more about the `plot()` function and the `mtcars` data set.
 
 ```{r help, eval=FALSE}
 help(plot)
@@ -70,7 +70,7 @@ str(mtcars)
 
 ## plot()
 
-Now that we have some idea about the data set, let us explore the `plot()` function. We will use the following different data inputs and observe the kind of plots that are generated:
+Now that we have some idea about the data set, let us explore the `plot()` function. We will use the following data inputs and observe the kind of plot each one generates:
 
 - Case 1: 1 continuous variable
 - Case 2: 1 categorical variable

@@ -50,8 +50,8 @@ dev.off()   # close the most recently opened one
 
 Devices are a **stack**. Opening a new one makes it active; closing it hands
 control back to the one underneath. That stack is why forgetting `dev.off()`
-leaves you with a device you cannot write to — and why a script that never calls
-it dumps its plots into a file called `Rplots.pdf` you did not ask for.
+leaves you with a device you cannot write to. It is also why a script that never
+calls it dumps its plots into a file called `Rplots.pdf` you did not ask for.
 
 > A useful habit: in any script or function that opens a device, pair it with
 > `on.exit()`. That way the device closes even if the code errors halfway
@@ -195,10 +195,10 @@ for (g in groups) {
 }
 ```
 
-Put the `dev.off()` outside the loop and you will open 3 devices, write 3 plots
-to whichever was active when each `png()` call was made — which is only the
-first — and leave two open at the end. The symptom is usually a folder of
-zero-byte files, or a folder containing one file that is wrong.
+Put the `dev.off()` outside the loop and you open 3 devices. All 3 plots are
+written to the device opened by the first `png()` call, and two devices are left
+open at the end. The symptom is usually a folder of zero-byte files, or a folder
+containing one file that is wrong.
 
 Two details separate a script that works from one that is trustworthy. First,
 `dir.create()` before the loop, not inside it. Second, print what you wrote:
@@ -346,7 +346,7 @@ plot(d, type = 'b', col = 'blue', xaxt = 'n', xlab = 'Position',
 axis(1, at = seq_along(d), labels = LETTERS[seq_along(d)])
 ```
 
-`xaxt = 'n'` removes the automatic axis first. Without it you draw two axes over
+`xaxt = 'n'` removes the automatic axis first. Without it, you draw two axes over
 each other, which is a common and confusing bug.
 
 To blank the labels but keep the ticks, ask for them explicitly:
@@ -384,7 +384,7 @@ slant them into each other.
 ## Colourblind-Safe Palettes
 
 Colour is where accessibility quietly fails, and the fix used to require a
-package. It no longer does — R 4.1 and later ship palettes designed to be
+package. It no longer does: R 4.1 and later ship palettes designed to be
 distinguishable under the common forms of colour vision deficiency.
 
 ```{r pals, eval=FALSE}
@@ -400,7 +400,7 @@ palette.colors(palette = 'Okabe-Ito')
 
 Two things to notice. The values come back as hex strings **printed by R**, and
 you should use them exactly as printed. Hand-typing a hex code from memory or
-from a blog post is how palettes get subtly wrong. Second, the first colour is
+from a blog post is how palettes end up subtly wrong. Second, the first colour is
 black, so index with `[-1]` or keep it deliberately — a plot whose first series
 is black tends to look like an axis.
 

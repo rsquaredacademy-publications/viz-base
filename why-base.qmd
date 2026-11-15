@@ -6,8 +6,8 @@ description: "Base R vs ggplot2 in 2026: measured draw speed, session startup co
 
 ## Introduction
 
-Base graphics have a reputation problem. The usual first question about them is
-some version of *isn't this the old way?*, and the usual answer is a shrug. This
+Base graphics have a reputation problem. The usual first question is some
+version of *isn't this the old way?*, and the usual answer is a shrug. This
 chapter argues the opposite: in 2026, base graphics are the correct first tool
 for a specific and fairly large set of jobs, and this book is that tool's
 documentation.
@@ -36,10 +36,10 @@ the `graphics` package. There is nothing to install.
 ?graphics
 ```
 
-The package has been part of R since before R 1.0 and its core has barely
-changed, which is either its greatest strength or its most damning indictment
-depending on who is talking. The reason it survives is that it does one thing
-very well: it takes coordinates and draws them. Everything else in this book is
+The package has been part of R since before R 1.0, and its core has barely
+changed. That is either its greatest strength or its most damning indictment,
+depending on who is talking. It survives because it does one thing very well:
+it takes coordinates and draws them. Everything else in this book is
 an elaboration on that idea.
 
 The key practical fact is this one:
@@ -50,7 +50,7 @@ plot(mtcars$disp, mtcars$mpg)
 
 No `library()` call. `graphics` is one of the packages R attaches at startup,
 alongside `stats`, `grDevices`, `utils` and `methods`. It is not merely
-available, it is already loaded, which is a stronger guarantee than "cheap to
+available; it is already loaded, which is a stronger guarantee than "cheap to
 install". We will quantify that in a moment.
 
 The three systems you are likely to meet in R are:
@@ -146,10 +146,10 @@ par(init)
 ```
 
 @fig-bench shows the result. At 10,000 points, constructing the ggplot2 object is
-about as fast as drawing the whole thing in base graphics — and drawing it is
-roughly **80 times slower than drawing it in base**. At 100,000 points the gap is
-worse, and base graphics has not become slower so much as ggplot2 has failed to
-scale the way the underlying drawing work does.
+about as fast as drawing the whole thing in base graphics, but drawing it is
+roughly **80 times slower than drawing it in base**. At 100,000 points the gap
+widens: base graphics has not become slower, but ggplot2 no longer scales with
+the underlying drawing work.
 
 Memory tells a similar story:
 

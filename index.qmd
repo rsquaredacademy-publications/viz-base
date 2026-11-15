@@ -13,7 +13,7 @@ knitr::include_graphics('img/viz-base.png')
 This book requires R 4.1 or later.
 
 ## Software information {.unnumbered}
-The R session information when compiling this book is shown below:
+The session information used to compile this book is shown below:
 
 ```{r session}
 sessionInfo()

@@ -18,11 +18,11 @@ In this chapter, we will learn to
 
 ## Box Plot
 
-The box plot is a standardized way of displaying the distribution of data based on the five number summary: minimum, first quartile, median, third quartile, and maximum. Box plots are useful for detecting outliers and for comparing distributions. It shows the shape, central tendency and variability of the data.
+A box plot is a standardized way of displaying the distribution of data based on the five-number summary: minimum, first quartile, median, third quartile and maximum. Box plots are useful for detecting outliers and for comparing distributions, and they show the shape, central tendency and variability of the data.
 
 ### Structure
 
-A boxplot splits the data set into quartiles. The body of the boxplot consists of a "box" (hence, the name), which goes from the first quartile (Q1) to the third quartile (Q3). Within the box, a vertical line is drawn at the Q2, the median of the data set. Two horizontal lines, called whiskers, extend from the front and back of the box. The front whisker goes from Q1 to the smallest non-outlier in the data set, and the back whisker goes from Q3 to the largest non-outlier. If the data set includes one or more outliers, they are plotted separately as points on the chart. 
+A box plot splits the data set into quartiles. The body of the box plot consists of a "box" (hence the name), which goes from the first quartile (Q1) to the third quartile (Q3). Within the box, a vertical line is drawn at Q2, the median of the data set. Two horizontal lines, called whiskers, extend from the front and back of the box. The front whisker goes from Q1 to the smallest non-outlier in the data set, and the back whisker goes from Q3 to the largest non-outlier. If the data set includes one or more outliers, they are plotted separately as points on the chart. 
 
 ## Univariate Box Plot
 
@@ -44,7 +44,7 @@ boxplot(mtcars$mpg, horizontal = TRUE)
 
 ### Color
 
-Let us add some color to the boxplot. Use the `col` argument to specify a color for the plot.
+Let us add some color to the box plot. Use the `col` argument to specify a color for the plot.
 
 ```{r box3, fig.align='center', fig.width=5, fig.height=5}
 boxplot(mtcars$mpg, col = 'blue')
@@ -52,7 +52,7 @@ boxplot(mtcars$mpg, col = 'blue')
 
 ### Border Color
 
-We can specify a separate color for the border of the box in the boxplot. To modify the border color, use the `border` argument.
+We can specify a separate color for the border of the box. To modify the border color, use the `border` argument.
 
 ```{r box4, fig.align='center', fig.width=5, fig.height=5}
 boxplot(mtcars$mpg, border = 'red')
@@ -60,7 +60,7 @@ boxplot(mtcars$mpg, border = 'red')
 
 ### Range
 
-The `range` argument determines how far the plot whiskers extend out from the box. If range is positive, the whiskers extend to the most extreme data point which is no more than range times the interquartile range from the box. A value of zero causes the whiskers to extend to the data extremes.
+The `range` argument determines how far the plot whiskers extend out from the box. If range is positive, the whiskers extend to the most extreme data point that is no more than range times the interquartile range from the box. A value of zero makes the whiskers extend to the data extremes.
 
 Let us set the value of `range` to 0 and observe the plot.
 
@@ -89,7 +89,7 @@ par(init)
 
 ### Outline
 
-The outliers in the plot are not drawn if the `outline` argument is set to `FALSE`. The default value is `TRUE`.
+The outliers in the plot are not drawn if the `outline` argument is set to `FALSE`. The default is `TRUE`.
 
 ```{r box8, fig.align='center', fig.width=5, fig.height=5}
 boxplot(mtcars$mpg, range = 1, outline = FALSE)
@@ -110,7 +110,7 @@ par(init)
 
 ### Varwidth
 
-If the `varwidth` argument is set to `TRUE`, the boxes are drawn with widths proportional to the square-roots of the number of observations in the groups.
+If the `varwidth` argument is set to `TRUE`, the boxes are drawn with widths proportional to the square root of the number of observations in each group.
 
 ```{r, fig.align='center', fig.width=10, fig.height=5, echo=FALSE}
 #| label: fig-box-summary
@@ -128,13 +128,13 @@ par(init)
 
 ## Bivariate/Multivariate Box Plot
 
-As we said in the introduction, box plots can be used to compare distributions of several variables. Let us use the `mtcars` data set and  compare the distribution of Miles Per Gallon (`mpg`) for automobiles with different number of cylinders (`cyl`). We will do this by specifying a formula as shown in the below example.
+As we said in the introduction, box plots can be used to compare distributions of several variables. Let us use the `mtcars` data set and compare the distribution of Miles Per Gallon (`mpg`) for automobiles with different numbers of cylinders (`cyl`), specifying a formula as shown in the example below.
 
 ```{r box11, fig.align='center', fig.width=5, fig.height=5}
 boxplot(mtcars$mpg ~ mtcars$cyl)
 ```
 
-We use the formula when we are comparing the distribution of a continuous variable across different levels of a categorical variable. If we want to compare the distributions without using a categorical variable, we need to specify the variable separately in the `boxplot()` function. Below is an illustration of this method. We will split the `mpg` data using the `split()` function and plot them separately. The `split()` function splits a continuous variable based on the levels of a categorical variable.
+We use the formula when we compare the distribution of a continuous variable across the levels of a categorical variable. To compare the distributions without a categorical variable, we specify the variables separately in the `boxplot()` function. Below is an illustration of this method: we split the `mpg` data using the `split()` function and plot the parts separately. `split()` splits a continuous variable based on the levels of a categorical variable.
 
 ```{r box12, fig.align='center', fig.width=5, fig.height=5, collapse=TRUE}
 mpg_split <- split(mtcars$mpg, mtcars$cyl)
@@ -148,11 +148,11 @@ mpg_8 <- mpg_split$`8`
 boxplot(mpg_4, mpg_6, mpg_8)
 ```
 
-The same plot can be created in two ways. If you are comparing the distribution of a continuous variable for the different levels of a categorical variable, use the formula. If you are comparing distribution of independent variables, specify all the variables in the `boxplot()` function.
+The same plot can be created in two ways. If you are comparing the distribution of a continuous variable across the levels of a categorical variable, use the formula. If you are comparing the distributions of independent variables, specify all the variables in the `boxplot()` function.
 
 ### Color
 
-Let us add some color to the plot. We can specify as many colors as the boxes or we can specify the same color for all of them. Below are two examples where we specify the same color in the first one and different colors in the second one.
+Let us add some color to the plot. We can specify as many colors as there are boxes, or the same color for all of them. Below are two examples: the same color in the first, different colors in the second.
 
 #### Single Color
 
@@ -169,7 +169,7 @@ boxplot(mtcars$mpg ~ mtcars$cyl,
 
 ### Compare Medians
 
-If we want to test whether the medians of the different groups differ, we can use the `notch` argument and set it to `TRUE`. A notch is drawn in each side of the boxes and if the notches of the plots do not overlap, it is strong evidence that the medians differ.
+If we want to test whether the medians of the different groups differ, we can use the `notch` argument and set it to `TRUE`. A notch is drawn in each side of the boxes, and if the notches do not overlap, it is strong evidence that the medians differ.
 
 We will use a different data set for this example. We use the `hsb2` data (High School and Beyond survey, 200 observations; vendored as `data/hsb2.csv`, originally from the UCLA Institute for Digital Research and Education) and compare the distribution of reading score (`read`) for males and females (`female`).
 

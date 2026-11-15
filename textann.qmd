@@ -6,14 +6,14 @@ description: "Base R text annotations: text() and mtext() with pos, offset, padj
 
 ## Introduction
 
-In this chapter, we will learn to add text annotations. There are occasions when you want to display additional information in a plot. This is usually achieved by adding text either inside the plot or on the margins. For example, you might want to label a line/bar or add formulas to better communicate what is shown in the plot. The idea is to use the available space within/outside the plot to provide additional information that can be useful to the end users. We will learn to add text inside as well as on the margins of the plot. This is accomplished using the following two functions:
+In this chapter, we will learn to add text annotations. There are occasions when you want to display additional information in a plot. We usually do this by adding text either inside the plot or on the margins. For example, you might want to label a line or a bar, or add a formula to communicate better what is shown. The idea is to use the available space within or outside the plot to provide information that can be useful to the reader. We will add text inside as well as on the margins, using the following two functions:
 
 - `text()` : add text inside the plot
 - `mtext()` : add text on the margins of the plot
 
 ## Syntax
 
-Let us take a quick look at the syntax of both the functions:
+Let us take a quick look at the syntax of both functions:
 
 ```{r text-syntax, eval=FALSE}
 text(x, y = NULL, labels = seq_along(x$x), adj = NULL,
@@ -26,7 +26,7 @@ mtext(text, side = 3, line = 0, outer = FALSE, at = NA,
 
 ## Text Inside the Plot
 
-To add text inside a plot, the following arguments must be supplied to the `text()` function:
+To add text inside a plot, supply the following arguments to the `text()` function:
 
 - `labels` : the text to be displayed
 - `x` : x axis coordinate
@@ -39,18 +39,18 @@ plot(mtcars$disp, mtcars$mpg)
 text(x = 340, y = 30, labels = 'Sample Text')
 ```
 
-The text appears at the coordinates (340, 30). Ensure that the text is enclosed in single/double quotes and the coordinates provided are within the range of the **X** and **Y** axis variables.
+The text appears at the coordinates (340, 30). Ensure that the text is enclosed in single or double quotes, and that the coordinates are within the range of the **X** and **Y** axis variables.
 
 ## Color
 
-The color of the text can be modified using the `col` argument in the `text()` function.
+We can modify the color of the text using the `col` argument in the `text()` function.
 
 ```{r text2, fig.align='center', fig.width=5, fig.height=5}
 plot(mtcars$disp, mtcars$mpg)
 text(x = 340, y = 30, labels = 'Sample Text', col = 'red')
 ```
 
-The below plot depicts the appearance of the text for different values of the `col` argument:
+The plot below shows the appearance of the text for different values of the `col` argument:
 
 ```{r text3, fig.align='center', fig.width=15, fig.height=5, echo=FALSE}
 init <- par(no.readonly = TRUE)
@@ -66,14 +66,14 @@ par(init)
 
 ## Font
 
-The font of the text can be modified using the `font` argument in the `text()` function.
+We can modify the font of the text using the `font` argument in the `text()` function.
 
 ```{r text4, fig.align='center', fig.width=5, fig.height=5}
 plot(mtcars$disp, mtcars$mpg)
 text(x = 340, y = 30, labels = 'Sample Text', col = 'red', font = 2)
 ```
 
-The below plot depicts the appearance of the text for different values of the `font` argument:
+The plot below shows the appearance of the text for different values of the `font` argument:
 
 ```{r text5, fig.align='center', fig.width=10, fig.height=10, echo=FALSE}
 init <- par(no.readonly = TRUE)
@@ -89,14 +89,14 @@ par(init)
 
 ## Font Family
 
-The font family of the text can be modified using the `family` argument in the `text()` function.
+We can modify the font family of the text using the `family` argument in the `text()` function.
 
 ```{r text6, fig.align='center', fig.width=5, fig.height=5}
 plot(mtcars$disp, mtcars$mpg)
 text(x = 340, y = 30, labels = 'Sample Text', col = 'red', family = 'mono')
 ```
 
-The below plot depicts the appearance of the text for different values of the `family` argument:
+The plot below shows the appearance of the text for different values of the `family` argument:
 
 ```{r text7, fig.align='center', fig.width=15, fig.height=5, echo=FALSE}
 init <- par(no.readonly = TRUE)
@@ -112,14 +112,14 @@ par(init)
 
 ## Font Size
 
-The font size of the text can be modified using the `cex` argument in the `text()` function.
+We can modify the font size of the text using the `cex` argument in the `text()` function.
 
 ```{r text8, fig.align='center', fig.width=5, fig.height=5}
 plot(mtcars$disp, mtcars$mpg)
 text(x = 340, y = 30, labels = 'Sample Text', col = 'red', cex = 2)
 ```
 
-The below plot depicts the appearance of the text for different values of the `cex` argument:
+The plot below shows the appearance of the text for different values of the `cex` argument:
 
 ```{r text9, fig.align='center', fig.width=15, fig.height=5, echo=FALSE}
 init <- par(no.readonly = TRUE)
@@ -135,25 +135,25 @@ par(init)
 
 ## Text on the Margins
 
-The `mtext()` function allows the user to place the text on the margins of the plot. It allows the user to modify the location of the text in multiple ways and we will explore them one by one. To begin with, let us add text to the plot using the `mtext()` function. The minimum input you need to provide is the text itself. Below is a simple example:
+The `mtext()` function places text on the margins of the plot. It allows us to modify the location of the text in several ways, and we will explore them one by one. To begin with, let us add text to the plot using `mtext()`. The minimum input is the text itself:
 
 ```{r mtext1, fig.align='center', fig.width=5, fig.height=5}
 plot(mtcars$disp, mtcars$mpg)
 mtext('Sample Text')
 ```
 
-As you can see, the text is placed on the margin of the plot and not inside the plot. Next, we will specify the margin on which to place the text.
+As you can see, the text is placed on the margin of the plot, not inside it. Next, we will specify the margin on which to place the text.
 
 ## Specify Margin
 
-Use the `side` argument to specify the margin on which you want to place the text. If takes values 1 to 4, each representing one side of the plot.
+Use the `side` argument to specify the margin on which to place the text. It takes values 1 to 4, each representing one side of the plot.
 
 ```{r mtext2, fig.align='center', fig.width=5, fig.height=5}
 plot(mtcars$disp, mtcars$mpg)
 mtext('Sample Text', side = 1)
 ```
 
-The below plot displays the appearance of the text when differnt options for `side` argument are supplied:
+The plot below displays the appearance of the text when different options for the `side` argument are supplied:
 
 ```{r mtext3, fig.align='center', fig.width=10, fig.height=10, echo=FALSE}
 init <- par(no.readonly = TRUE)
@@ -169,7 +169,7 @@ par(init)
 
 ## Line
 
-The `line` argument places the text at a specified distance from the margin. The default value is `0`. As the value increases, the text is placed farther from the margin and outside the plot. As the value decreases, the text is placed inside the plot and farther from the margin. Below is an example where the text is placed outside the plot as the value is greater than 1.
+The `line` argument places the text at a specified distance from the margin. The default value is `0`. As the value increases, the text moves farther from the margin and outside the plot; as it decreases, the text moves inside the plot and farther from the margin. In the example below, the text is placed outside the plot because the value is greater than 1.
 
 ```{r mtext4, fig.align='center', fig.width=5, fig.height=5}
 plot(mtcars$disp, mtcars$mpg)
@@ -183,7 +183,7 @@ plot(mtcars$disp, mtcars$mpg)
 mtext('Sample Text', line = -1)
 ```
 
-The below plot displays the appearance of the text when different values are supplied to the `line` argument:
+The plot below displays the appearance of the text when different values are supplied to the `line` argument:
 
 ```{r mtext6, fig.align='center', fig.width=15, fig.height=10, echo=FALSE}
 init <- par(no.readonly = TRUE)
@@ -199,7 +199,7 @@ par(init)
 
 ## Alignment
 
-The `adj` argument is used for horizontal alignment of the text. It takes values between 0 and 1. If set to `0`, the text will be left aligned and at `1`, it will be right aligned. Below is an example where the text is left aligned as `adj` is set to `0`.
+The `adj` argument controls the horizontal alignment of the text. It takes values between 0 and 1. If set to `0`, the text is left aligned; at `1`, it is right aligned. In the example below, the text is left aligned as `adj` is set to `0`.
 
 ```{r mtext7, fig.align='center', fig.width=5, fig.height=5}
 plot(mtcars$disp, mtcars$mpg)
@@ -213,7 +213,7 @@ plot(mtcars$disp, mtcars$mpg)
 mtext('Sample Text', adj = 1)
 ```
 
-The below plot displays the appearance of the text when different values are supplied to the `adj` argument:
+The plot below displays the appearance of the text when different values are supplied to the `adj` argument:
 
 ```{r mtext9, fig.align='center', fig.width=15, fig.height=10, echo=FALSE}
 init <- par(no.readonly = TRUE)
@@ -253,7 +253,7 @@ par(init)
 
 ## Offset
 
-The `offset` argument of the `text()` function controls how far the text is placed from the coordinates when `pos` is used. The distance is measured in character widths and the default value is `0.5`.
+The `offset` argument of the `text()` function controls how far the text is placed from the coordinates when `pos` is used. The distance is measured in character widths, and the default is `0.5`.
 
 ```{r, fig.align='center', fig.width=5, fig.height=5}
 #| label: fig-text-offset
